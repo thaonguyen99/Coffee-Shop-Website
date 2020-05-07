@@ -1,0 +1,10 @@
+.btn-lightpink{
+    border: 2px solid black;
+    border-color: #f1d1d1;
+    color: #f1d1d1;
+    background-color: #7d5a5a;
+}
+.btn-lightpink:hover{
+    background-color: #f1d1d1;
+    color: #7d5a5a;
+}
