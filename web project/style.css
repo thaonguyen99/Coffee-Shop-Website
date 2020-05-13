@@ -29,7 +29,7 @@ body{
     margin: auto;
     font-size: 18px;
     line-height: 1.9;
-    color: black;
+    color:#323232;
 }
 .navbar-light .navbar-brand{
     color: #fff;
@@ -48,4 +48,7 @@ body{
 }
 .transparent-bgd{
     opacity: 0.8;
+}
+.btn{
+    background-color: rgb(77, 77, 77,0.6);
 }
