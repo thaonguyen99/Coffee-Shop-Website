@@ -1,54 +1,273 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap');
 
-.balsa{
-    font-family: 'Balsamiq Sans', cursive;
+.balsa {
+  font-family: 'Balsamiq Sans', cursive;
 }
-body{
-    margin: 0;
-    padding: 0;
+
+body {
+  margin: 0;
+  padding: 0;
 }
-.carousel-item{
-    height: 100vh;
-    min-height: 300px;
-    background: no-repeat center center scroll;
-    background-size: cover;
+
+/* Intro of HOMEPAGE */
+.carousel-item {
+  height: 100vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  background-size: cover;
 }
-.carousel-caption{
-    bottom: 270px;
+
+.carousel-caption {
+  bottom: 270px;
 }
-.carousel-caption h3{
-    font-size: 45px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-top: 25px;
-    color: black;
+
+.carousel-caption h3 {
+  font-size: 45px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 25px;
+  color: black;
 }
-.carousel-caption p{
-    width: 75%;
-    margin: auto;
-    font-size: 18px;
-    line-height: 1.9;
-    color:#323232;
+
+.carousel-caption p {
+  width: 75%;
+  margin: auto;
+  font-size: 18px;
+  line-height: 1.9;
+  color: #323232;
 }
-.navbar-light .navbar-brand{
-    color: #fff;
-    font-size: 25px;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
+
+/* NAVBAR */
+.navbar-light .navbar-brand {
+  color: #fff;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
-.nav-item{
-    padding-left: 20px;
-    padding-right: 20px;
+
+.nav-item {
+  padding-left: 20px;
+  padding-right: 20px;
 }
-.nav-link{
-    padding: 15px;
-    display: block;
+
+.nav-link {
+  padding: 15px;
+  display: block;
 }
-.transparent-bgd{
-    opacity: 0.8;
+
+.transparent-bgd {
+  opacity: 0.8;
 }
-.btn{
-    background-color: rgb(77, 77, 77,0.6);
+
+.btn {
+  background-color: rgb(77, 77, 77, 0.6);
+}
+
+.signature {
+  left: auto;
+  right: auto;
+}
+
+.product-box {
+  margin: 20px;
+  left: auto;
+  right: auto;
+}
+
+/* LOGIN PAGE */
+:after, :before {
+  box-sizing: border-box
+}
+
+.clearfix:after, .clearfix:before {
+  content: '';
+  display: table
+}
+
+.clearfix:after {
+  clear: both;
+  display: block
+}
+
+a {
+  color: inherit;
+  text-decoration: none
+}
+
+.auth-wrap {
+  width: 100%;
+  margin: auto;
+  max-width: 600px;
+  min-height: 600px;
+  position: relative;
+  background: url(./img/bg.jpg) no-repeat center;
+  background-size: cover;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, .24), 0 17px 50px 0 rgba(0, 0, 0, .19);
+}
+
+.auth-html {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding: 90px 70px 50px 70px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.auth-html .sign-in-htm,
+.auth-html .for-pwd-htm {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transition: all .4s linear;
+  transition: all .4s linear;
+}
+
+.auth-html .sign-in,
+.auth-html .for-pwd,
+.auth-form .group .check {
+  display: none;
+}
+
+.auth-html .tab,
+.auth-form .group .label,
+.auth-form .group .button {
+  text-transform: uppercase;
+}
+
+.auth-html .tab {
+  font-size: 22px;
+  margin-right: 15px;
+  padding-bottom: 5px;
+  margin: 0 15px 10px 0;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+}
+
+.auth-html .sign-in:checked+.tab,
+.auth-html .for-pwd:checked+.tab {
+  color: #fff;
+  border-color: #1161ee;
+}
+
+.auth-form {
+  min-height: 345px;
+  position: relative;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.auth-form .group {
+  margin-bottom: 15px;
+}
+
+.auth-form .group .label,
+.auth-form .group .input,
+.auth-form .group .button {
+  width: 100%;
+  color: #fff;
+  display: block;
+}
+
+.auth-form .group .input,
+.auth-form .group .button {
+  border: none;
+  padding: 15px 20px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, .1);
+}
+
+.auth-form .group input[data-type="password"] {
+  text-security: circle;
+  -webkit-text-security: circle;
+}
+
+.auth-form .group .label {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.auth-form .group .button {
+  background: #1161ee;
+}
+
+.auth-form .group label .icon {
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  position: relative;
+  display: inline-block;
+  background: rgba(255, 255, 255, .1);
+}
+
+.auth-form .group label .icon:before,
+.auth-form .group label .icon:after {
+  content: '';
+  width: 10px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  -webkit-transition: all .2s ease-in-out 0s;
+  transition: all .2s ease-in-out 0s;
+}
+
+.auth-form .group label .icon:before {
+  left: 3px;
+  width: 5px;
+  bottom: 6px;
+  -webkit-transform: scale(0) rotate(0);
+  transform: scale(0) rotate(0);
+}
+
+.auth-form .group label .icon:after {
+  top: 6px;
+  right: 0;
+  -webkit-transform: scale(0) rotate(0);
+  transform: scale(0) rotate(0);
+}
+
+.auth-form .group .check:checked+label {
+  color: #fff;
+}
+
+.auth-form .group .check:checked+label .icon {
+  background: #1161ee;
+}
+
+.auth-form .group .check:checked+label .icon:before {
+  -webkit-transform: scale(1) rotate(45deg);
+  transform: scale(1) rotate(45deg);
+}
+
+.auth-form .group .check:checked+label .icon:after {
+  -webkit-transform: scale(1) rotate(-45deg);
+  transform: scale(1) rotate(-45deg);
+}
+
+.auth-html .sign-in:checked+.tab+.for-pwd+.tab+.auth-form .sign-in-htm {
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+}
+
+.auth-html .for-pwd:checked+.tab+.auth-form .for-pwd-htm {
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+}
+
+.hr {
+  height: 2px;
+  margin: 60px 0 50px 0;
+  background: rgba(255, 255, 255, .2);
+}
+
+.foot-lnk {
+  text-align: center;
 }

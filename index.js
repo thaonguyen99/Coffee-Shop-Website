@@ -19,6 +19,26 @@ app.get('/', (req, res) => {
   return res.render('homepage');
 })
 
+app.get('/login', (req, res) => {
+  return res.render('login');
+})
+
+app.get('/register', (req, res) => {
+  return res.render('register');
+})
+
+app.get('/product', (req, res) => {
+  return res.render('product');
+})
+
+app.get('/contact', (req, res) => {
+  return res.render('contact');
+})
+
+app.get('/about', (req, res) => {
+  return res.render('about');
+})
+
 
 const PORT = process.env.PORT || 5000;
 
