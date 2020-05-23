@@ -1,11 +1,41 @@
 <%-include("partials/header")-%>
 
 <%# CONTENT GOES HERE  %>
+<style>
+  body{
+    background: url(img/coffee-laptop-bg-img.jpg) no-repeat;
+    background-size: cover;
+  }
+</style>
+<div class="login-box balsa">
+  <h1>Member Registration</h1>
+  <form method="POST" action="">
+    <div class="text-box">
+        <i class="fa fa-address-card"></i>
+        <input type="text" placeholder="Enter full name" name="fname">
+      </div>
+      <div class="text-box">
+        <i class="fa fa-user-circle"></i>
+        <input type="text" placeholder="Enter username" name="uname">
+      </div>
+      <div class="text-box">
+        <i class="fa fa-map"></i>
+        <input type="text" placeholder="Enter address" name="address">
+      </div>
+      <div class="text-box">
+        <i class="fa fa-phone"></i>
+        <input type="text" placeholder="Enter phone number" name="phone">
+      </div>
+  <div class="text-box">
+    <i class="fa fa-envelope"></i>
+    <input type="email" placeholder="abc@gmail.com" name="email">
+  </div>
+  
+  <div class="text-box">
+    <i class="fa fa-lock"></i>
+    <input type="password" placeholder="Enter password" name="password">
+  </div>
+  <input class="login-btn" type="button" value="Sign in" >
+</form>
+</div>
 
-
- 
-
-
-
-
-<%-include ("partials/footer")-%>
