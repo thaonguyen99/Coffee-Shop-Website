@@ -50,7 +50,9 @@ UserRouter.route('/login')
       return res.render('login', { msg: 'User exist' });
     }
     return res.redirect('homepage');
-  })
+  });
+
+
 
 
 module.exports = UserRouter;
