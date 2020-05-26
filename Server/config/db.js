@@ -6,7 +6,7 @@ const mongo_URI = "mongodb+srv://DPQ:Quynh30519@coffeshop-304xg.mongodb.net/test
 const connectDB = async () => {
   try {
     await mongoose.connect(mongo_URI, {
-      useUnifiedTopology: true, useNewUrlParser: true
+      useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true
     });
     console.log('MongoDB connecting...');
   }
