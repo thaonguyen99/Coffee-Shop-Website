@@ -1,19 +1,38 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
     <title>Beanie Beanie</title>
   </head>
 
   <body>
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-light" style="position: sticky; top: 0">
+    <nav
+      id="navbar"
+      class="navbar navbar-expand-lg navbar-light"
+      style="position: sticky; top: 0; z-index: 1;"
+    >
       <a class="navbar-brand" href="/">Beanie Beanie</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -21,11 +40,31 @@
         <form>
           <div class="input-group">
             <div class="input-group-btn">
-              <button style="border-radius: 0; border-color: rgb(57, 62, 70,0.3); margin-left: 50px; padding-left: 25px; padding-right: 25px;" class="btn btn-default" type="submit">
+              <button
+                style="
+                  border-radius: 0;
+                  border-color: rgb(57, 62, 70, 0.3);
+                  margin-left: 50px;
+                  padding-left: 25px;
+                  padding-right: 25px;
+                "
+                class="btn btn-default"
+                type="submit"
+              >
                 <i class="fa fa-search"></i>
               </button>
             </div>
-            <input style="border-radius: 0; background-color:rgb(255, 255, 255, 0.4); border-color: rgb(57, 62, 70,0.3);" class="form-control" type="text" placeholder="Search" name="search">
+            <input
+              style="
+                border-radius: 0;
+                background-color: rgb(255, 255, 255, 0.4);
+                border-color: rgb(57, 62, 70, 0.3);
+              "
+              class="form-control"
+              type="text"
+              placeholder="Search"
+              name="search"
+            />
           </div>
         </form>
       </div>
@@ -33,13 +72,23 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/"
+              >Home <span class="sr-only">(current)</span></a
+            >
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbardrop"
+              data-toggle="dropdown"
+            >
               Menu
             </a>
-            <div class="dropdown-menu" style="background-color: rgb(255, 255, 255, 0.4);">
+            <div
+              class="dropdown-menu"
+              style="background-color: rgb(255, 255, 255, 0.4);"
+            >
               <a class="dropdown-item" href="#">Coffee</a>
               <a class="dropdown-item" href="#">Tea</a>
               <a class="dropdown-item" href="#">Desert</a>
@@ -57,23 +106,27 @@
           </li>
           <!-- SIGN UP LINK -->
           <li class="nav-item">
-            <a style="color: #e8e4e1;" class="nav-link sign-up" href="/register">SignUp</a>
+            <a style="color: #e8e4e1;" class="nav-link sign-up" href="/register"
+              >SignUp</a
+            >
           </li>
         </ul>
       </div>
     </nav>
-
-    <script>
-      window.onscroll = function() {myFunction()};
-      
-      var navbar = document.getElementById("navbar");
-      var sticky = navbar.offsetTop;
-      
-      function myFunction() {
-        if (window.pageYOffset >= sticky) {
-          navbar.classList.add("sticky")
-        } else {
-          navbar.classList.remove("sticky");
-        }
-      }
-      </script>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"
+  ></script>
+</html>
