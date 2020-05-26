@@ -2,7 +2,7 @@
 
 <%# CONTENT GOES HERE  %>
 <style>
-  body{
+  body {
     background: url(img/bg-img3.jpg) no-repeat;
     background-size: cover;
     width: 100%;
@@ -11,18 +11,15 @@
 </style>
 <div class="login-box balsa">
   <h1>Login</h1>
-  <form method="POST" action="">
-  <div class="text-box">
-    <i class="fa fa-envelope"></i>
-    <input type="email" placeholder="abc@gmail.com" name="email">
-  </div>
-  <div class="text-box">
-    <i class="fa fa-lock"></i>
-    <input type="password" placeholder="Enter password" name="password">
-  </div>
-  <input class="login-btn" type="button" value="Sign in" >
-</form>
+  <form method="POST" action="/login">
+    <div class="text-box">
+      <i class="fa fa-envelope"></i>
+      <input type="username" placeholder="abc" name="username">
+    </div>
+    <div class="text-box">
+      <i class="fa fa-lock"></i>
+      <input type="password" placeholder="Enter password" name="password">
+    </div>
+    <input class="login-btn" type="submit" value="Sign in">
+  </form>
 </div>
-
-
-

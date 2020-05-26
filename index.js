@@ -2,6 +2,7 @@ const express = require('express');
 const connectDB = require('./Server/config/db');
 const bodyParser = require('body-parser');
 const path = require('path');
+const route = require('./Server/route');
 
 const app = express();
 
@@ -14,6 +15,8 @@ app.set('views', './Server/view/');
 connectDB();
 
 app.use(express.static(path.join(__dirname, 'Server/view/')));
+
+app.use('/', route);
 
 app.get('/', (req, res) => {
   return res.render('homepage');
