@@ -3,6 +3,7 @@ const UserRouter = express.Router();
 const UserRepository = require('./repository');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const auth = require('../config/middleware/auth');
 const { check, validationResult } = require('express-validator');
 
 
@@ -42,9 +43,7 @@ UserRouter.route('/register')
         if (existUser) {
           return res.status(400).render('register', { msg: 'User already exists', success: false })
         }
-        console.log('1');
         const user = await UserRepository.create(newUser);
-        console.log('2');
         //Encrypt password
         const salt = await bcrypt.genSalt(10);
 
@@ -52,23 +51,23 @@ UserRouter.route('/register')
 
         await user.save();
 
-        // //return jsonwebtoken
-        // const payload = {
-        //   user: {
-        //     id: user.id
-        //   }
-        // }
+        //return jsonwebtoken
+        const payload = {
+          user: {
+            id: user.id
+          }
+        }
+        jwt.sign(payload,
+          process.env.jwtSecret,
+          { expiresIn: 360000 },
+          (err, token) => {
+            if (err) throw err;
+            return res.render('homepage', { user, token });
+          })
 
-        // jwt.sign(payload,
-        //   process.env.jwtSecret,
-        //   { expiresIn: 360000 },
-        //   (err, token) => {
-        //     if (err) throw err;
-        //     res.json({ token });
-        //   })
-        return res.render('homepage', { user });
       }
       catch (e) {
+        console.log(e);
         return res.json({ msg: e });
       }
 
@@ -77,21 +76,39 @@ UserRouter.route('/register')
 
 UserRouter.route('/login')
   .get(async (req, res) => {
-    return res.render('login');
+    return res.render('login', { success: true });
   })
-  .post(async (req, res) => {
-    const { username, password } = req.body;
-    const userExist = await UserRepository.findUserByUsername(username);
-    if (!userExist) {
-      return res.render('login', { msg: 'User not exist' });
-    }
-    if (password !== userExist.password) {
-      return res.render('login', { msg: 'Password is not match' });
-    }
+  .post([
+    check('username', 'Username is required!').not().isEmpty(),
+    check('password', 'Password is required!').not().isEmpty().isLength({ min: 6 })
+  ],
+    async (req, res) => {
+      const { username, password } = req.body;
+      const userExist = await UserRepository.findUserByUsername(username);
+      if (!userExist) {
+        return res.render('login', { success: false, msg: 'User not exist' });
+      }
 
+      const isMatch = await bcrypt.compare(password, userExist.password);
+      if (!isMatch) {
+        return res.status(400).render('login', { success: false, msg: 'Password is not match' });
+      }
+      const payload = {
+        userExist: {
+          id: userExist.id
+        }
+      }
 
-    return res.redirect('/');
-  });
+      jwt.sign(payload,
+        process.env.jwtSecret,
+        { expiresIn: 360000 },
+        (err, token) => {
+          if (err) throw err;
+          console.log(user, token);
+
+        })
+      return res.render('homepage', { success: true, user: userExist, token });
+    });
 
 const sendTokenResponse = (user, res) => {
   //Create token

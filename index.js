@@ -3,8 +3,12 @@ const connectDB = require('./Server/config/db');
 const bodyParser = require('body-parser');
 const path = require('path');
 const route = require('./Server/route');
+const dotenv = require('dotenv');
 
 const app = express();
+
+
+dotenv.config({ path: './Server/config/config.env' });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
