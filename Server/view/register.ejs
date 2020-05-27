@@ -7,20 +7,26 @@
     background-size: cover;
   }
 </style>
-<%if(errors){%>
+
+<%if(success===false){%>
+<%=msg%>
+<%}%>
 
 <div class="login-box balsa">
   <h1>Member Registration</h1>
+
   <form method="POST" action="/register">
     <div class="text-box">
       <i class="fa fa-address-card"></i>
       <input type="text" placeholder="Enter full name" name="fullname" required>
     </div>
     <div class="text-box">
+
       <i class="fa fa-user-circle"></i>
       <input type="text" placeholder="Enter username" name="username" required>
     </div>
     <div class="text-box">
+
       <i class="fa fa-map"></i>
       <input type="text" placeholder="Enter address" name="address" required>
     </div>
@@ -39,5 +45,5 @@
     </div>
     <input class="login-btn" type="submit" value="Sign up">
   </form>
-  <%}%>
-    </div>
+
+</div>

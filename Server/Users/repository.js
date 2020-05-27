@@ -1,8 +1,8 @@
 const User = require('./model');
 
-const create = async (username, email, fullName, address, phoneNumber, password) => {
-  const user = await User.create(username, password, email, fullName, address, phoneNumber);
-  return user;
+const create = async (user) => {
+
+  return await User.create(user);;
 }
 
 const findUserById = async (id) => {
@@ -10,8 +10,8 @@ const findUserById = async (id) => {
   return user;
 }
 
-const findUserByUsername = async (username) => {
-  const user = await User.findOne(username);
+const findUserByUsername = async (name) => {
+  const user = await User.findOne({ username: name });
   return user;
 }
 
