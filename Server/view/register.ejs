@@ -1,6 +1,4 @@
-<%-include("partials/header")-%>
-
-<%# CONTENT GOES HERE  %>
+<%-include("partials/header")-%> <%# CONTENT GOES HERE %>
 <style>
   body {
     background: url(img/coffee-laptop-bg-img.jpg) no-repeat;
@@ -14,30 +12,66 @@
   <form method="POST" action="/register">
     <div class="text-box">
       <i class="fa fa-address-card"></i>
-      <input type="text" placeholder="Enter full name" name="fullname" required>
+      <input
+        type="text"
+        placeholder="Enter full name"
+        name="fullname"
+        required
+      />
     </div>
     <div class="text-box">
       <i class="fa fa-user-circle"></i>
-      <input type="text" placeholder="Enter username" name="username" required>
+      <input
+        type="text"
+        placeholder="Enter username"
+        name="username"
+        required
+      />
     </div>
     <div class="text-box">
       <i class="fa fa-map"></i>
-      <input type="text" placeholder="Enter address" name="address" required>
+      <input type="text" placeholder="Enter address" name="address" required />
     </div>
     <div class="text-box">
       <i class="fa fa-phone"></i>
-      <input type="text" placeholder="Enter phone number" name="phoneNumber" required>
+      <input
+        type="text"
+        placeholder="Enter phone number"
+        name="phoneNumber"
+        required
+      />
     </div>
     <div class="text-box">
       <i class="fa fa-envelope"></i>
-      <input type="email" placeholder="abc@gmail.com" name="email" required>
+      <input type="email" placeholder="abc@gmail.com" name="email" required />
     </div>
 
     <div class="text-box">
       <i class="fa fa-lock"></i>
-      <input type="password" placeholder="Enter password" name="password" required>
+      <input
+        type="password"
+        placeholder="Enter password"
+        name="password"
+        required
+      />
     </div>
-    <input class="login-btn" type="submit" value="Sign up">
+    <input class="login-btn" type="submit" value="Sign up" />
   </form>
   <%}%>
-    </div>
+
+  <script
+    src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"
+  ></script>
+</div>
