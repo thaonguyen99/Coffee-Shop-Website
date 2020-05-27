@@ -124,6 +124,7 @@ body {
 .sign-up {
   background-color: #222831;
 }
+/* END OF NAVBAR */
 
 /* FOOTER */
 .footer {
@@ -170,8 +171,15 @@ body {
 .centered {
   text-align: center;
 }
+.footer-child a {
+  margin-bottom: 1rem;
+  margin-top: 0;
+  display: block;
+  width: 100%;
+}
 /* END OF FOOTER */
 
+/* LOGIN */
 .login-box {
   width: 280px;
   position: absolute;
@@ -220,6 +228,7 @@ body {
   cursor: pointer;
   margin: 12px 0;
 }
+/* END OF LOGIN */
 
 /* CONTACT INFO BOX */
 .bot-centered {
@@ -323,3 +332,4 @@ body {
   padding: 90px;
   font-size: 30px;
 }
+/* END OF CONTACT INFO */
