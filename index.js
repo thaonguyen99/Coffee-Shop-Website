@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const route = require('./Server/route');
 const dotenv = require('dotenv');
+const auth = require('./Server/config/middleware/auth');
 
 const app = express();
 
@@ -12,6 +13,7 @@ dotenv.config({ path: './Server/config/config.env' });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 
 app.set('view engine', 'ejs');
 app.set('views', './Server/view/');
@@ -22,7 +24,8 @@ app.use(express.static(path.join(__dirname, 'Server/view/')));
 
 app.use('/', route);
 
-app.get('/', (req, res) => {
+app.get('/', auth, (req, res) => {
+  console.log(req.user);
   return res.render('homepage');
 })
 

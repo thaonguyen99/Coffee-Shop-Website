@@ -7,17 +7,22 @@ const auth = require('../config/middleware/auth');
 const { check, validationResult } = require('express-validator');
 
 
+//Log out
+UserRouter.get('/logout', async (req, res) => {
+  res.redirect('/');
+})
+
 
 //Sign up
 UserRouter.route('/register')
   .get(async (req, res) => {
-    return res.render('register', { success: true });
+    return res.render('register', { success: true, user: null });
   })
   .post([
     check('fullname', 'Full name is required!').not().isEmpty(),
     check('username', 'Username is required!').not().isEmpty(),
     check('address', 'Address is required!').not().isEmpty(),
-    check('phoneNumber', 'Phone number must have 10 number').not().isEmpty().isNumeric().isLength(10),
+    check('phoneNumber', 'Phone number must have 10 number').not().isEmpty().isNumeric().isLength({ min: 10 }),
     check('email', 'Email is required!').not().isEmpty().isEmail(),
     check('password', 'Password is required and must have more than 6 characters!').not().isEmpty().isLength({ min: 6 })
   ],
@@ -34,14 +39,14 @@ UserRouter.route('/register')
 
       if (!errors.isEmpty()) {
         return res.status(400).render('register', {
-          msg, success: false
+          msg, success: false, user: null
         });
       }
 
       try {
         //check user exist
         if (existUser) {
-          return res.status(400).render('register', { msg: 'User already exists', success: false })
+          return res.status(400).render('register', { msg: 'User already exists', success: false, user: null })
         }
         const user = await UserRepository.create(newUser);
         //Encrypt password
@@ -76,7 +81,7 @@ UserRouter.route('/register')
 
 UserRouter.route('/login')
   .get(async (req, res) => {
-    return res.render('login', { success: true });
+    return res.render('login', { success: true, user: null });
   })
   .post([
     check('username', 'Username is required!').not().isEmpty(),
@@ -93,8 +98,10 @@ UserRouter.route('/login')
       if (!isMatch) {
         return res.status(400).render('login', { success: false, msg: 'Password is not match' });
       }
+
+
       const payload = {
-        userExist: {
+        user: {
           id: userExist.id
         }
       }
@@ -104,10 +111,9 @@ UserRouter.route('/login')
         { expiresIn: 360000 },
         (err, token) => {
           if (err) throw err;
-          console.log(user, token);
-
+          return res.render('homepage', { success: true, user: userExist, token });
         })
-      return res.render('homepage', { success: true, user: userExist, token });
+
     });
 
 const sendTokenResponse = (user, res) => {
