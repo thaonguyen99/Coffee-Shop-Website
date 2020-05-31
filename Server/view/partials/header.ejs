@@ -1,92 +1,93 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-  <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet" />
-  <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet" />
-  <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet" />
-  <title>Beanie Beanie</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet" />
+    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet" />
+    <link rel="stylesheet" href="swiper.min.css">
+    <title>Beanie Beanie</title>
+  </head>
 
-<body>
-  <nav id="navbar" class="navbar navbar-expand-lg navbar-light" style="position: sticky; top: 0; z-index: 1;">
-    <a class="navbar-brand" href="/">Beanie Beanie</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <body>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light" style="position: sticky; top: 0; z-index: 1;">
+      <a class="navbar-brand" href="/">Beanie Beanie</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="container">
-      <form>
-        <div class="input-group">
-          <div class="input-group-btn">
-            <button style="
+      <div class="container">
+        <form>
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button style="
                   border-radius: 0;
                   border-color: rgb(57, 62, 70, 0.3);
                   margin-left: 50px;
                   padding-left: 25px;
                   padding-right: 25px;
                 " class="btn btn-default" type="submit">
-              <i class="fa fa-search"></i>
-            </button>
-          </div>
-          <input style="
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+            <input style="
                 border-radius: 0;
                 background-color: rgb(255, 255, 255, 0.4);
                 border-color: rgb(57, 62, 70, 0.3);
               " class="form-control" type="text" placeholder="Search" name="search" />
-        </div>
-      </form>
-    </div>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-            Menu
-          </a>
-          <div class="dropdown-menu" style="background-color: rgb(255, 255, 255, 0.4);">
-            <a class="dropdown-item" href="#">Coffee</a>
-            <a class="dropdown-item" href="#">Tea</a>
-            <a class="dropdown-item" href="#">Desert</a>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="about">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contact">Contact</a>
-        </li>
-        <%if(!user){%>
-        <!-- LOGIN LINK -->
-        <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
-        </li>
-        <!-- SIGN UP LINK -->
-        <li class="nav-item">
-          <a style="color: #e8e4e1;" class="nav-link sign-up" href="/register">SignUp</a>
-        </li>
-        <%}else{%>
-        <li class="nav-item">
-          <a class="nav-link" href=""><%=user.fullname%>></a>
-        </li>
-        <!-- SIGN UP LINK -->
-        <li class="nav-item">
-          <a style="color: #e8e4e1;" class="nav-link sign-up" href="/logout">Log Out</a>
-        </li>
-        <%}%>
+        </form>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Menu
+            </a>
+            <div class="dropdown-menu" style="background-color: rgb(255, 255, 255, 0.4);">
+              <a class="dropdown-item" href="/product">Coffee</a>
+              <a class="dropdown-item" href="#">Tea</a>
+              <a class="dropdown-item" href="#">Desert</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          <%if(!user){%>
+          <!-- LOGIN LINK -->
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <!-- SIGN UP LINK -->
+          <li class="nav-item">
+            <a style="color: #e8e4e1;" class="nav-link sign-up" href="/register">SignUp</a>
+          </li>
+          <%}else{%>
+          <li class="nav-item">
+            <a class="nav-link" href=""><%=user.fullname%>></a>
+          </li>
+          <!-- SIGN UP LINK -->
+          <li class="nav-item">
+            <a style="color: #e8e4e1;" class="nav-link sign-up" href="/logout">Log Out</a>
+          </li>
+          <%}%>
+
 
         </ul>
       </div>
     </nav>
   </body>
+
 </html>
