@@ -4,7 +4,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const route = require('./Server/route');
 const dotenv = require('dotenv');
-const auth = require('./Server/config/middleware/auth');
+const expressSession = require('express-session');
+const checkUser = require('./Server/config/middleware/checkUser');
 
 const app = express();
 
@@ -22,11 +23,21 @@ connectDB();
 
 app.use(express.static(path.join(__dirname, 'Server/view/')));
 
+app.use(expressSession({
+  secret: 'DPQ',
+  saveUninitialized: true,
+  resave: true,
+  cookie: {
+    maxAge: 10 * 60 * 1000 // milli
+  }
+}));
+
 app.use('/', route);
 
-app.get('/', auth, (req, res) => {
-  console.log(req.user);
-  return res.render('homepage');
+
+
+app.get('/', checkUser, (req, res) => {
+  return res.render('homepage',user);
 })
 
 app.get('/login', (req, res) => {
@@ -41,12 +52,12 @@ app.get('/product', (req, res) => {
   return res.render('product');
 })
 
-app.get('/contact', (req, res) => {
-  return res.render('contact');
+app.get('/contact',checkUser, (req, res) => {
+  return res.render('contact',{user});
 })
 
-app.get('/about', (req, res) => {
-  return res.render('about');
+app.get('/about',checkUser, (req, res) => {
+  return res.render('about',{user});
 })
 
 

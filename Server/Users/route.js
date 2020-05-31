@@ -3,8 +3,10 @@ const UserRouter = express.Router();
 const UserRepository = require('./repository');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const auth = require('../config/middleware/auth');
 const { check, validationResult } = require('express-validator');
+const redirectToHome = require('../config/middleware/redirectToHome');
+const checkUser = require('../config/middleware/checkUser');
+
 
 
 //Log out
@@ -15,7 +17,7 @@ UserRouter.get('/logout', async (req, res) => {
 
 //Sign up
 UserRouter.route('/register')
-  .get(async (req, res) => {
+  .get(redirectToHome,async (req, res) => {
     return res.render('register', { success: true, user: null });
   })
   .post([
@@ -56,19 +58,9 @@ UserRouter.route('/register')
 
         await user.save();
 
-        //return jsonwebtoken
-        const payload = {
-          user: {
-            id: user.id
-          }
-        }
-        jwt.sign(payload,
-          process.env.jwtSecret,
-          { expiresIn: 360000 },
-          (err, token) => {
-            if (err) throw err;
-            return res.render('homepage', { user, token });
-          })
+        req.session.user = user;
+
+        return res.redirect('/');
 
       }
       catch (e) {
@@ -78,9 +70,9 @@ UserRouter.route('/register')
 
     });
 
-
+//Login
 UserRouter.route('/login')
-  .get(async (req, res) => {
+  .get(redirectToHome, async (req, res) => {
     return res.render('login', { success: true, user: null });
   })
   .post([
@@ -99,30 +91,19 @@ UserRouter.route('/login')
         return res.status(400).render('login', { success: false, msg: 'Password is not match' });
       }
 
-
-      const payload = {
-        user: {
-          id: userExist.id
-        }
-      }
-
-      jwt.sign(payload,
-        process.env.jwtSecret,
-        { expiresIn: 360000 },
-        (err, token) => {
-          if (err) throw err;
-          return res.render('homepage', { success: true, user: userExist, token });
-        })
+      req.session.user = userExist;
+      return res.redirect('/');
 
     });
 
-const sendTokenResponse = (user, res) => {
-  //Create token
-  const token = user.getSignedJwtToken();
+//Log out
+UserRouter.post('/logout', (req, res) => {
+  req.session.destroy();
+  console.log(req.session);
 
+  return res.redirect('/');
+});
 
-  return res.json({ token }).state('token', { token, firstvisit: false });
-}
 
 
 module.exports = UserRouter;
