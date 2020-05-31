@@ -9,15 +9,12 @@ const checkUser = require('../config/middleware/checkUser');
 
 
 
-//Log out
-UserRouter.get('/logout', async (req, res) => {
-  res.redirect('/');
-})
+
 
 
 //Sign up
 UserRouter.route('/register')
-  .get(redirectToHome,async (req, res) => {
+  .get(redirectToHome, async (req, res) => {
     return res.render('register', { success: true, user: null });
   })
   .post([
@@ -98,12 +95,12 @@ UserRouter.route('/login')
 
 //Log out
 UserRouter.route('/logout')
-.post( (req, res) => {
-  req.session.destroy();
+  .post((req, res) => {
+    req.session.destroy();
 
 
-  res.redirect('/');
-});
+    res.redirect('/');
+  });
 
 
 

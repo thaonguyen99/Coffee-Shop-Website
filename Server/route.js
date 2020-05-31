@@ -1,7 +1,14 @@
 const UserRoute = require('./Users/route');
-
-const route =
-  UserRoute
+const ProductRoute = require('./Products/route');
 
 
-module.exports = route;
+const routes = [
+  UserRoute,
+  ProductRoute
+]
+
+
+
+
+
+module.exports = routes;

@@ -2,7 +2,7 @@ const express = require('express');
 const connectDB = require('./Server/config/db');
 const bodyParser = require('body-parser');
 const path = require('path');
-const route = require('./Server/route');
+const routes = require('./Server/route');
 const dotenv = require('dotenv');
 const expressSession = require('express-session');
 const checkUser = require('./Server/config/middleware/checkUser');
@@ -32,12 +32,12 @@ app.use(expressSession({
   }
 }));
 
-app.use('/', route);
+app.use('/', routes);
 
 
 
 app.get('/', checkUser, (req, res) => {
-  return res.render('homepage',user);
+  return res.render('homepage', user);
 })
 
 app.get('/login', (req, res) => {
@@ -52,12 +52,12 @@ app.get('/product', (req, res) => {
   return res.render('product');
 })
 
-app.get('/contact',checkUser, (req, res) => {
-  return res.render('contact',{user});
+app.get('/contact', checkUser, (req, res) => {
+  return res.render('contact', { user });
 })
 
-app.get('/about',checkUser, (req, res) => {
-  return res.render('about',{user});
+app.get('/about', checkUser, (req, res) => {
+  return res.render('about', { user });
 })
 
 
