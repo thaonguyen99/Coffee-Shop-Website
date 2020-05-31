@@ -76,11 +76,13 @@
           </li>
           <%}else{%>
           <li class="nav-item">
-            <a class="nav-link" href=""><%=user.fullname%>></a>
+            <a class="nav-link" href=""><%=user.fullname%></a>
           </li>
-          <!-- SIGN UP LINK -->
+          <!-- LOG OUT LINK -->
           <li class="nav-item">
-            <a style="color: #e8e4e1;" class="nav-link sign-up" href="/logout">Logout</a>
+          <form method="POST" action="/logout">
+            <button style="color: #e8e4e1;" class="nav-link sign-up">Logout</button>
+            </form>
           </li>
           <%}%>
 

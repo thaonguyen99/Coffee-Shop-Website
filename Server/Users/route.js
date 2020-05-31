@@ -97,11 +97,12 @@ UserRouter.route('/login')
     });
 
 //Log out
-UserRouter.post('/logout', (req, res) => {
+UserRouter.route('/logout')
+.post( (req, res) => {
   req.session.destroy();
-  console.log(req.session);
 
-  return res.redirect('/');
+
+  res.redirect('/');
 });
 
 
