@@ -578,9 +578,10 @@ header.is-visible {
 /* menu overview */
 .pro-container {
   margin: 30px auto 5px;
-  height: 70vh;
+  height: 100%;
+  width: 80%;
   display: flex;
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -607,7 +608,7 @@ header.is-visible {
   position: relative;
   width: 300px;
   height: 400px;
-  margin: 0 25px;
+  margin: 25px;
   background: #fff;
   transform-style: preserve-3d;
   transform: perspective(2000px);
@@ -685,8 +686,8 @@ header.is-visible {
 
 /* product line */
 .product-line {
-  margin: 0 auto 30px;
-  width: 70vw;
+  margin: 30px auto;
+  width: 80%;
   background: #fff;
 }
 
@@ -723,6 +724,7 @@ header.is-visible {
 
 .line-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   margin: 0 0 30px;
