@@ -48,9 +48,6 @@ app.get('/register', (req, res) => {
   return res.render('register');
 })
 
-app.get('/product', (req, res) => {
-  return res.render('product');
-})
 
 app.get('/contact', checkUser, (req, res) => {
   return res.render('contact', { user });

@@ -4,19 +4,13 @@ const ProductRepository = require('./repository');
 const checkUser = require('../config/middleware/checkUser');
 
 //View menu 
-ProductRouter.get('/menu', checkUser, async (req, res) => {
-  const products = await ProductRepository.getAllProducts();
+ProductRouter.get('/product', checkUser, async (req, res) => {
+  const coffee = await ProductRepository.getProductByCategory('Coffee');
+  const tea = await ProductRepository.getProductByCategory('Tea');
+  const pastry = await ProductRepository.getProductByCategory('Pastry');
 
-  return res.render('menu', { user, products });
+  return res.render('product', { user, coffee, tea, pastry });
 })
 
-//View products by category
-ProductRouter.get('/menu/:category', checkUser, async (req, res) => {
-  const { category } = req.params;
-
-  const products = await ProductRepository.getProductByCategory(category);
-
-  return res.render(`${category}`);
-})
 
 module.exports = ProductRouter;

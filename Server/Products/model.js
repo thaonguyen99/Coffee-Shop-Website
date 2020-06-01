@@ -10,7 +10,7 @@ const ProductSchema = mongoose.Schema({
     enum: [
       'Coffee',
       'Tea',
-      'Dessert'
+      'Pastry'
     ]
   },
   description: String,
