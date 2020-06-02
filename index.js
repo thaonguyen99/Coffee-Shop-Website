@@ -6,6 +6,7 @@ const routes = require('./Server/route');
 const dotenv = require('dotenv');
 const expressSession = require('express-session');
 const checkUser = require('./Server/config/middleware/checkUser');
+const migrate = require('migrate');
 
 const app = express();
 
@@ -56,6 +57,8 @@ app.get('/contact', checkUser, (req, res) => {
 app.get('/about', checkUser, (req, res) => {
   return res.render('about', { user });
 })
+
+
 
 
 const PORT = process.env.PORT || 5000;

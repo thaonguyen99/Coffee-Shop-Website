@@ -19,7 +19,6 @@
   "homepage": "https://github.com/thaonguyen99/Coffee-Shop-Website#readme",
   "dependencies": {
     "bcrypt": "^4.0.1",
-    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "config": "^3.3.1",
     "cookie-session": "^1.4.0",
@@ -29,6 +28,7 @@
     "express-session": "^1.17.1",
     "express-validator": "^6.5.0",
     "jsonwebtoken": "^8.5.1",
+    "migrate": "^1.6.2",
     "mongoose": "^5.9.16",
     "request": "^2.88.2",
     "session": "^0.1.0",
