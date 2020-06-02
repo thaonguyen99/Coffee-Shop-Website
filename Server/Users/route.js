@@ -1,7 +1,7 @@
 const express = require('express');
 const UserRouter = express.Router();
 const UserRepository = require('./repository');
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 const redirectToHome = require('../config/middleware/redirectToHome');
@@ -49,11 +49,11 @@ UserRouter.route('/register')
         }
         const user = await UserRepository.create(newUser);
         //Encrypt password
-        // const salt = await bcrypt.genSalt(10);
+        const salt = await bcrypt.genSalt(10);
 
-        // user.password = await bcrypt.hash(password, salt);
+        user.password = await bcrypt.hash(password, salt);
 
-        // await user.save();
+        await user.save();
 
         req.session.user = user;
 

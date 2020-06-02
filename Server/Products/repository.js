@@ -8,7 +8,12 @@ const getProductByCategory = async (category) => {
   return await Product.findOne({ category });
 }
 
+const createProduct = async (product) => {
+  return await Product.create(product);
+}
+
 module.exports = {
   getAllProducts,
-  getProductByCategory
+  getProductByCategory,
+  createProduct
 }

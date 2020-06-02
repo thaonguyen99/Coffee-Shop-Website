@@ -6,8 +6,8 @@ const routes = require('./Server/route');
 const dotenv = require('dotenv');
 const expressSession = require('express-session');
 const checkUser = require('./Server/config/middleware/checkUser');
-const migrate = require('migrate');
-const path = require('path');
+
+
 
 const app = express();
 
@@ -35,7 +35,6 @@ app.use(expressSession({
 }));
 
 app.use('/', routes);
-
 
 
 app.get('/', checkUser, (req, res) => {

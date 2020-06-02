@@ -22,6 +22,10 @@ const ProductSchema = mongoose.Schema({
       'M',
       'L'
     ]
+  },
+  photo: {
+    type: String,
+    require: true
   }
 });
 
