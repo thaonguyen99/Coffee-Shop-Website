@@ -26,7 +26,7 @@
 <div class="pro-container">
   <div class="pro-card">
     <div class="sliderText">
-      <img src="img/menu/coffee/chocolate-marshmallow.jpg" alt="" />
+      <img src="img/chocolate-marshmallow.jpg" alt="" />
     </div>
     <div class="pro-content">
       <h3>Coffee</h3>
@@ -41,7 +41,7 @@
 
   <div class="pro-card">
     <div class="sliderText">
-      <img src="img/menu/tea/blueberry-tea.jpg" alt="" />
+      <img src="img/blueberry-tea.jpg" alt="" />
     </div>
     <div class="pro-content">
       <h3>Tea &amp; Soda</h3>
@@ -55,7 +55,7 @@
 
   <div class="pro-card">
     <div class="sliderText">
-      <img src="img/menu/pastry/pancake.jpg" alt="" />
+      <img src="img/pancake.jpg" alt="" />
     </div>
     <div class="pro-content">
       <h3>Pastry</h3>
@@ -85,8 +85,10 @@
         <h3><%=item.name%></h3>
         <p><%=item.description%></p>
         <p><%=item.price%> VND</p>
+        <form class="" action="/add-to-cart" method="post">
+          <button class="cart-btn">Add to cart</button>
+        </form>
 
-        <a href="#" class="cart-btn">Add to cart</a>
       </div>
     </div>
 
@@ -108,7 +110,10 @@
         <h3><%=item.name%></h3>
         <p><%=item.description%></p>
         <p><%=item.price%> VND</p>
-        <a href="#" class="cart-btn">Add to cart</a>
+        <form class="" action="/add-to-cart" method="post">
+          <button class="cart-btn">Add to cart</button>
+        </form>
+
       </div>
     </div>
     <%})%>
@@ -131,7 +136,10 @@
         <h3><%=item.name%></h3>
         <p><%=item.description%></p>
         <p><%=item.price%> VND</p>
-        <a href="#" class="cart-btn">Add to cart</a>
+        <form class="" action="/add-to-cart" method="post">
+          <button class="cart-btn">Add to cart</button>
+        </form>
+
       </div>
     </div>
     <%})%>
@@ -140,10 +148,7 @@
 </div>
 
 <script src="javascript/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <%-include ("partials/footer")-%>
