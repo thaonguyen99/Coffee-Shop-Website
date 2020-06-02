@@ -5,7 +5,7 @@ const getAllProducts = async () => {
 }
 
 const getProductByCategory = async (category) => {
-  return await Product.findOne({ category });
+  return await Product.find({ category });
 }
 
 const createProduct = async (product) => {
