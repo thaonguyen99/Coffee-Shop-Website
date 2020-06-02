@@ -2,9 +2,7 @@ const express = require('express');
 const ProductRouter = express.Router();
 const ProductRepository = require('./repository');
 const checkUser = require('../config/middleware/checkUser');
-var multer = require('multer')
-var upload = multer({ dest: '../view/img/' })
-
+const { upload } = require('../config/middleware/multer');
 //View menu 
 ProductRouter.get('/product', checkUser, async (req, res) => {
   const coffee = await ProductRepository.getProductByCategory('Coffee');
@@ -20,13 +18,19 @@ ProductRouter.route('/add-product')
     return res.render('add-product');
   })
   .post(upload.single('photo'), async (req, res) => {
-    const { name, category, description, price, size, photo } = req.body;
+    const { name, category, description, price, size } = req.body;
+    const photo = 'http://localhost:5000/img/' + req.file.filename;
+    const newProduct = { name, category, description, price, size, photo };
 
-    await ProductRepository.createProduct(req.body);
+    const product = await ProductRepository.createProduct(newProduct);
 
     return res.redirect('/product');
   }
-  )
+  );
+
+
+
+
 
 
 module.exports = ProductRouter;

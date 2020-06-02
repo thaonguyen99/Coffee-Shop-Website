@@ -9,6 +9,7 @@ const checkUser = require('./Server/config/middleware/checkUser');
 
 
 
+
 const app = express();
 
 
@@ -35,6 +36,8 @@ app.use(expressSession({
 }));
 
 app.use('/', routes);
+
+
 
 
 app.get('/', checkUser, (req, res) => {
