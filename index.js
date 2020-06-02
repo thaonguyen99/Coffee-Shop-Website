@@ -7,6 +7,7 @@ const dotenv = require('dotenv');
 const expressSession = require('express-session');
 const checkUser = require('./Server/config/middleware/checkUser');
 const migrate = require('migrate');
+const path = require('path');
 
 const app = express();
 
