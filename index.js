@@ -44,9 +44,12 @@ app.get('/', checkUser, (req, res) => {
   return res.render('homepage', user);
 })
 
+
 app.get('/login', (req, res) => {
   return res.render('login');
 })
+
+
 
 app.get('/register', (req, res) => {
   return res.render('register');
@@ -60,6 +63,11 @@ app.get('/contact', checkUser, (req, res) => {
 app.get('/about', checkUser, (req, res) => {
   return res.render('about', { user });
 })
+
+app.get('/cart', checkUser, (req, res) => {
+  return res.render('cart', { user });
+})
+
 
 
 
