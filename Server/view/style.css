@@ -1,14 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@500;700&family=Playball&family=Sacramento&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Lato:wght@400;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
 
-.navbar-light .navbar-brand {
-  color: #fff;
-  font-size: 25px;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -151,6 +143,14 @@ body {
   margin: 0;
   color: #222831;
   font-size: 20px;
+}
+
+.navbar-light .navbar-brand {
+  color: #fff;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 /* END OF NAVBAR */
