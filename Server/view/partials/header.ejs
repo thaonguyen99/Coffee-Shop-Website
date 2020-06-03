@@ -14,22 +14,12 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
-    <link
-      href="/your-path-to-fontawesome/css/fontawesome.css"
-      rel="stylesheet"
-    />
-    <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet" />
-    <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet" />
-    <link rel="stylesheet" href="swiper.min.css" />
+
     <title>Beanie Beanie</title>
   </head>
 
   <body>
-    <nav
-      id="navbar"
-      class="navbar navbar-expand-lg navbar-light"
-      style="position: sticky; top: 0; z-index: 1;"
-    >
+    <nav id="topnav" class="navbar navbar-expand-lg fixed-top">
       <a class="navbar-brand" href="/">Beanie Beanie</a>
       <button
         class="navbar-toggler"
@@ -42,23 +32,21 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="container">
-        <form>
+        <form class="search-bar">
           <div class="input-group">
             <div class="input-group-btn">
               <button
                 style="
                   border-radius: 0;
                   border-color: rgb(57, 62, 70, 0.3);
-                  margin-left: 50px;
+                  margin-left: 50%;
                   padding-left: 25px;
                   padding-right: 25px;
                 "
                 class="btn btn-default"
-                type="submit"
               >
-                <i class="fa fa-search"></i>
+                <i class="fas fa-search"></i>
               </button>
             </div>
             <input
@@ -74,7 +62,41 @@
             />
           </div>
         </form>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-shopping-cart"></i></a>
+          </li>
+          <%if(!user){%>
+          <!-- LOGIN LINK -->
+          <li class="nav-item">
+            <a class="nav-link" href="/login"><i class="fas fa-user"></i></a>
+          </li>
+          <!-- SIGN UP LINK -->
+          <li class="nav-item">
+            <a class="nav-link" href="/register"
+              ><i class="fas fa-user-cog"></i
+            ></a>
+          </li>
+          <%}else{%>
+          <li class="nav-item">
+            <a class="nav-link" href=""
+              ><i class="fas fa-user-edit"></i> Hi, <%=user.fullname%></a
+            >
+          </li>
+          <!-- LOG OUT LINK -->
+          <li class="nav-item">
+            <form method="POST" action="/logout">
+              <button id="sign-out-btn" class="nav-link">
+                <i class="fa fa-sign-out nav-link"></i>
+              </button>
+            </form>
+          </li>
+          <%}%>
+        </ul>
       </div>
+    </nav>
+    <nav id="subnav" class="navbar navbar-expand-lg navbar-light">
+      <!-- <div class="container"></div> -->
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
@@ -92,30 +114,6 @@
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contact</a>
           </li>
-          <%if(!user){%>
-          <!-- LOGIN LINK -->
-          <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
-          </li>
-          <!-- SIGN UP LINK -->
-          <li class="nav-item">
-            <a style="color: #e8e4e1;" class="nav-link sign-up" href="/register"
-              >SignUp</a
-            >
-          </li>
-          <%}else{%>
-          <li class="nav-item">
-            <a class="nav-link" href=""><%=user.fullname%></a>
-          </li>
-          <!-- LOG OUT LINK -->
-          <li class="nav-item">
-            <form method="POST" action="/logout">
-              <button style="color: #e8e4e1;" class="nav-link sign-up">
-                Logout
-              </button>
-            </form>
-          </li>
-          <%}%>
         </ul>
       </div>
     </nav>
