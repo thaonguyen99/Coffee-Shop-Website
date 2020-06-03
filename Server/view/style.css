@@ -90,9 +90,10 @@ body {
 }
 
 .nav-link {
-  padding: 15px;
+  padding: 15px 50px;
   display: block;
   color: #222831;
+  font-size: 1.2rem;
 }
 
 .transparent-bgd {
