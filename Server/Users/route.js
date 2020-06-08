@@ -72,7 +72,7 @@ UserRouter.route('/login')
   .get(redirectToHome, async (req, res) => {
     return res.render('login', { success: true, user: null });
   })
-  .post([
+  .post(checkUser, [
     check('username', 'Username is required!').not().isEmpty(),
     check('password', 'Password is required!').not().isEmpty().isLength({ min: 6 })
   ],

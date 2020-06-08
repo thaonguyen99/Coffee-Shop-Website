@@ -77,86 +77,91 @@
   </div>
 
   <div class="line-container">
+
     <%coffee.forEach(item=>{%>
-    <div class="item">
-      <img src="<%=item.photo%>" alt="" />
-      <form class="" action="/add-to-cart" method="post">
+    <form class="" action="/product" method="post">
+      <div class="item">
+        <img src="<%=item.photo%>" alt="" />
         <div class="itemDetail">
           <h3><%=item.name%></h3>
           <p><%=item.description%></p>
           <p>Price :<span><%=item.price%></span>VND</p>
           <p class="size">Size :
-            <span><input type="radio" name="size" value="S">S</span>
-            <span><input type="radio" name="size" value="M">M</span>
+            <span><input type="radio" name="size" value="S" required=true>S</span>
+            <span><input type="radio" name="size" value="M" required=true>M</span>
           </p>
+          <input type="hidden" name="productID" value="<%=item._id%>">
           <button class="cart-btn">Add to cart</button>
         </div>
-      </form>
-    </div>
-
-    <%})%>
+    </form>
   </div>
 
-  <!-- TEA LINE -->
-  <div class="line-header" id="tea">
-    <h2>Tea &amp; Soda</h2>
-    <div class="underline"></div>
+  <%})%>
+</div>
+
+<!-- TEA LINE -->
+<div class="line-header" id="tea">
+  <h2>Tea &amp; Soda</h2>
+  <div class="underline"></div>
+</div>
+
+<div class="line-container">
+  <%tea.forEach(item =>{%>
+  <div class="item">
+
+    <img src="<%=item.photo%>" alt="" />
+    <form class="" action="/add-to-cart" method="post">
+      <div class="itemDetail">
+        <h3><%=item.name%></h3>
+        <p><%=item.description%></p>
+        <p>Price :<span><%=item.price%> </span>VND</p>
+        <p class="size">Size :
+          <span><input type="radio" name="size" value="S" required=true>S</span>
+          <span><input type="radio" name="size" value="M" required=true>M</span>
+        </p>
+        <button class="cart-btn">Add to cart</button>
+      </div>
+    </form>
   </div>
+  <%})%>
+</div>
 
-  <div class="line-container">
-    <%tea.forEach(item =>{%>
-    <div class="item">
 
-      <img src="<%=item.photo%>" alt="" />
-      <form class="" action="/add-to-cart" method="post">
-        <div class="itemDetail">
-          <h3><%=item.name%></h3>
-          <p><%=item.description%></p>
-          <p>Price :<span><%=item.price%> </span>VND</p>
-          <p class="size">Size :
-            <span><input type="radio" name="size" value="S">S</span>
-            <span><input type="radio" name="size" value="M">M</span>
-          </p>
-          <button class="cart-btn">Add to cart</button>
-        </div>
-      </form>
-    </div>
-    <%})%>
+
+
+
+<!-- PASTRY LINE -->
+<div class="line-header" id="pastry">
+  <h2>Pastry</h2>
+  <div class="underline"></div>
+</div>
+
+<div class="line-container">
+  <%pastry.forEach(item => {%>
+  <div class="item">
+    <img src="<%=item.photo%>" alt="" />
+    <form class="" action="/add-to-cart" method="post">
+      <div class="itemDetail">
+        <h3><%=item.name%></h3>
+        <p><%=item.description%></p>
+        <p>Price :<span><%=item.price%></span>VND</p>
+        <p class="size">Size :
+          <span><input type="radio" name="size" value="S" required=true>S</span>
+          <span><input type="radio" name="size" value="M" required=true>M</span>
+        </p>
+        <button class="cart-btn">Add to cart</button>
+      </div>
+    </form>
   </div>
-
-
-
-
-
-  <!-- PASTRY LINE -->
-  <div class="line-header" id="pastry">
-    <h2>Pastry</h2>
-    <div class="underline"></div>
-  </div>
-
-  <div class="line-container">
-    <%pastry.forEach(item => {%>
-    <div class="item">
-      <img src="<%=item.photo%>" alt="" />
-      <form class="" action="/add-to-cart" method="post">
-        <div class="itemDetail">
-          <h3><%=item.name%></h3>
-          <p><%=item.description%></p>
-          <p>Price :<span><%=item.price%></span>VND</p>
-          <p class="size">Size :
-            <span><input type="radio" name="size" value="S">S</span>
-            <span><input type="radio" name="size" value="M">M</span>
-          </p>
-          <button class="cart-btn">Add to cart</button>
-        </div>
-      </form>
-    </div>
-    <%})%>
-  </div>
+  <%})%>
+</div>
 </div>
 
 <script src="javascript/main.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <%-include ("partials/footer")-%>

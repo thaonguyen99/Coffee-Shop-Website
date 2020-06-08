@@ -8,6 +8,10 @@ const getProductByCategory = async (category) => {
   return await Product.find({ category });
 }
 
+const getProductByID = async (id) => {
+  return await Product.findById(id);
+}
+
 const createProduct = async (product) => {
   return await Product.create(product);
 }
@@ -15,5 +19,6 @@ const createProduct = async (product) => {
 module.exports = {
   getAllProducts,
   getProductByCategory,
-  createProduct
+  createProduct,
+  getProductByID
 }

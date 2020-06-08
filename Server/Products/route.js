@@ -1,16 +1,51 @@
 const express = require('express');
 const ProductRouter = express.Router();
 const ProductRepository = require('./repository');
+const UserRepository = require('../Users/repository');
 const checkUser = require('../config/middleware/checkUser');
 const { upload } = require('../config/middleware/multer');
-//View menu 
-ProductRouter.get('/product', checkUser, async (req, res) => {
-  const coffee = await ProductRepository.getProductByCategory('Coffee');
-  const tea = await ProductRepository.getProductByCategory('Tea');
-  const pastry = await ProductRepository.getProductByCategory('Pastry');
+//View menu & add to cart
+ProductRouter.route('/product')
+  .get(checkUser, async (req, res) => {
+    const coffee = await ProductRepository.getProductByCategory('Coffee');
+    const tea = await ProductRepository.getProductByCategory('Tea');
+    const pastry = await ProductRepository.getProductByCategory('Pastry');
+    req.session.cart = [];
+    return res.render('product', { user, coffee, tea, pastry });
+  })
+  .post(checkUser, async (req, res) => {
+    const { size, productID } = req.body;
+    const product = await ProductRepository.getProductByID(productID);
 
-  return res.render('product', { user, coffee, tea, pastry });
-});
+    console.log(productID)
+    if (!user) {
+      // const newProduct = { product, size };
+      // req.session.cart.unshift(newProduct);
+      // console.log(req.session);
+      res.json('Sign Up');
+    }
+    else {
+      let isFound = false;
+      for (let i = 0; i < user.cart.length; i++) {
+        console.log(user.cart[i]);
+        if (user.cart[i].productID == productID) {
+          if (user.cart[i].size == size) {
+            isFound = true;
+          }
+        }
+      }
+      if (isFound == false) {
+        user.cart.unshift({ productID, size });
+      }
+
+      user = await UserRepository.updateUser(user._id, { cart: user.cart });
+      console.log(user.cart);
+      return res.redirect('/product');
+
+    }
+
+  })
+
 
 //Add products
 ProductRouter.route('/add-product')
@@ -29,7 +64,26 @@ ProductRouter.route('/add-product')
   );
 
 
+//View cart
+ProductRouter.get('/cart', checkUser, async (req, res) => {
+  if (!user) {
+    const product = req.session.cart;
+    console.log(req.session);
+    return res.render('cart', { product });
+  }
+  else {
+    const products = user.cart;
+    let listProduct = [];
+    products.forEach(async (item) => {
+      const product = await ProductRepository.getProductByID(item.productID);
+      listProduct.unshift(product);
+      console.log(listProduct);
+      return res.render('cart', { listProduct });
+    })
 
+
+  }
+})
 
 
 

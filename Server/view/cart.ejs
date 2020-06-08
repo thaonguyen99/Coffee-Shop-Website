@@ -33,29 +33,30 @@
         </div>
 
         <!-- For each cart element -->
+        <%listProduct.forEach(item => {%>
         <div class="row">
           <div class="col-2">
             <img class="cartImg" src="img/cf4.jpg" alt="">
           </div>
           <div class="col-2">
-            <p>Coffee</p>
+            <p><%=item.name%></p>
           </div>
           <div class="col-2">
-            <p>45000</p>
+            <p><%=item.price%></p>
           </div>
           <div class="col-2">
 
-            <input type="number" name-="amount" min="1" value="1" size="10">
+            <input type="number" name="amount" min="1" value="1" size="10">
 
           </div>
           <div class="col-2">
-            <p>45000</p>
+            <p><%=item.price %></p>
           </div>
           <div class="col-2">
             <i class="fa fa-trash"> </i>
           </div>
         </div>
-
+        <%})%>
         <!-- For each cart element -->
         <div class="row">
           <div class="col-2">
@@ -170,7 +171,7 @@
           </div>
         </div>
 
-      
+
 
       </div>
     </div>
@@ -189,7 +190,8 @@
           <label for="name" class="col-form-label-lg">Customer Name </label>
         </div>
         <div class="col-sm-8">
-          <input class="form-control" type="text" name="cusName" id="name" value="" placeholder="First Name - Last Name">
+          <input class="form-control" type="text" name="cusName" id="name" value=""
+            placeholder="First Name - Last Name">
         </div>
       </div>
 
@@ -219,7 +221,8 @@
 
         </div>
         <div class="col-sm-8">
-          <input class="form-control" type="address" name="address" id="address" placeholder="123 Nguyen Thi Minh Khai Street, Ward 20, District 1">
+          <input class="form-control" type="address" name="address" id="address"
+            placeholder="123 Nguyen Thi Minh Khai Street, Ward 20, District 1">
         </div>
       </div>
       <div class="row c-checkout">
@@ -227,10 +230,12 @@
 
         </div>
         <div class="col-md-4">
-          <button type="submit" class="btn btn-lg btn-outline-dark checkout" name="button"><span><i class="fa fa-angle-double-left"></i></span>Continue Shopping</button>
+          <button type="submit" class="btn btn-lg btn-outline-dark checkout" name="button"><span><i
+                class="fa fa-angle-double-left"></i></span>Continue Shopping</button>
         </div>
         <div class="col-md-4">
-          <button type="submit" class="btn btn-lg btn-outline-dark checkout" name="button">Checkout<span><i class="fa fa-arrow-circle-right"></i></span></button>
+          <button type="submit" class="btn btn-lg btn-outline-dark checkout" name="button">Checkout<span><i
+                class="fa fa-arrow-circle-right"></i></span></button>
         </div>
         <div class="col-md-2">
 

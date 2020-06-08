@@ -16,8 +16,10 @@ const findUserByUsername = async (name) => {
 }
 
 const updateUser = async (id, user) => {
-  const newUser = await User.findByIdAndUpdate(id, user, { new: true });
+  const newUser = await User.findByIdAndUpdate(id, user, { new: true, useFindAndModify: false });
+  return newUser;
 }
+
 
 module.exports = {
   create,
