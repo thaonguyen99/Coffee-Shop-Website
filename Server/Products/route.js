@@ -17,7 +17,6 @@ ProductRouter.route('/product')
     const { size, productID } = req.body;
     const product = await ProductRepository.getProductByID(productID);
 
-    console.log(productID)
     if (!user) {
       // const newProduct = { product, size };
       // req.session.cart.unshift(newProduct);
@@ -27,7 +26,6 @@ ProductRouter.route('/product')
     else {
       let isFound = false;
       for (let i = 0; i < user.cart.length; i++) {
-        console.log(user.cart[i]);
         if (user.cart[i].productID == productID) {
           if (user.cart[i].size == size) {
             isFound = true;
@@ -39,7 +37,6 @@ ProductRouter.route('/product')
       }
 
       user = await UserRepository.updateUser(user._id, { cart: user.cart });
-      console.log(user.cart);
       return res.redirect('/product');
 
     }
@@ -68,18 +65,24 @@ ProductRouter.route('/add-product')
 ProductRouter.get('/cart', checkUser, async (req, res) => {
   if (!user) {
     const product = req.session.cart;
-    console.log(req.session);
     return res.render('cart', { product });
   }
   else {
     const products = user.cart;
     let listProduct = [];
-    products.forEach(async (item) => {
-      const product = await ProductRepository.getProductByID(item.productID);
-      listProduct.unshift(product);
-      console.log(listProduct);
-      return res.render('cart', { listProduct });
-    })
+    for (let i = 0; i < products.length; i++) {
+      let size = products[i].size;
+      const product = await ProductRepository.getProductByID(products[i].productID);
+      let price = product.price;
+
+
+      if (size == 'M') {
+        price += 20 / 100 * price;
+      }
+      listProduct.unshift({ product, size, price });
+    }
+
+    return res.render('cart', { listProduct });
 
 
   }

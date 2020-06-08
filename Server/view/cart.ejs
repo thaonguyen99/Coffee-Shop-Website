@@ -18,15 +18,16 @@
           <div class="col-2 ">
             <p class="c-title">Name</p>
           </div>
+          <div class="col-2">
+            <p class="c-title">Size</p>
+          </div>
           <div class="col-2 ">
             <p class="c-title">Price</p>
           </div>
           <div class="col-2 ">
             <p class="c-title">Amount</p>
           </div>
-          <div class="col-2">
-            <p class="c-title">Subtotal</p>
-          </div>
+
           <div class="col-2">
 
           </div>
@@ -36,12 +37,15 @@
         <%listProduct.forEach(item => {%>
         <div class="row">
           <div class="col-2">
-            <img class="cartImg" src="img/cf4.jpg" alt="">
+            <img class="cartImg" src="<%=item.product.photo%>" alt="">
           </div>
           <div class="col-2">
-            <p><%=item.name%></p>
+            <p><%=item.product.name%></p>
           </div>
           <div class="col-2">
+            <p><%=item.size%></p>
+          </div>
+          <div class=" col-2">
             <p><%=item.price%></p>
           </div>
           <div class="col-2">
@@ -49,61 +53,13 @@
             <input type="number" name="amount" min="1" value="1" size="10">
 
           </div>
-          <div class="col-2">
-            <p><%=item.price %></p>
-          </div>
+
           <div class="col-2">
             <i class="fa fa-trash"> </i>
           </div>
         </div>
         <%})%>
-        <!-- For each cart element -->
-        <div class="row">
-          <div class="col-2">
-            <img class="cartImg" src="img/cf4.jpg" alt="">
-          </div>
-          <div class="col-2">
-            <p>Coffee</p>
-          </div>
-          <div class="col-2">
-            <p>45000</p>
-          </div>
-          <div class="col-2">
 
-            <input type="number" name-="amount" min="1" value="1" size="10">
-
-          </div>
-          <div class="col-2">
-            <p>45000</p>
-          </div>
-          <div class="col-2">
-            <i class="fa fa-trash"> </i>
-          </div>
-        </div>
-
-        <!-- For each cart element -->
-        <div class="row">
-          <div class="col-2">
-            <img class="cartImg" src="img/cf4.jpg" alt="">
-          </div>
-          <div class="col-2">
-            <p>Coffee</p>
-          </div>
-          <div class="col-2">
-            <p>45000</p>
-          </div>
-          <div class="col-2">
-
-            <input type="number" name-="amount" min="1" value="1" size="10">
-
-          </div>
-          <div class="col-2">
-            <p>45000</p>
-          </div>
-          <div class="col-2">
-            <i class="fa fa-trash"> </i>
-          </div>
-        </div>
 
         <div class="row">
 
