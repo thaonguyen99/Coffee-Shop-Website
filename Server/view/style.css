@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@500;700&family=Playball&family=Sacramento&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Lato:wght@400;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
 .navbar-light .navbar-brand {
   color: #fff;
@@ -554,7 +555,7 @@ header.is-visible {
 
 .main-img img {
   width: 85vw;
-  height: 65vh;
+  height: 80vh;
   background-size: contain;
 }
 
@@ -1046,7 +1047,7 @@ hr {
   text-align: justify;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   .carousel-caption {
     font-size: 1.5rem;
     top: 5%;
@@ -1064,7 +1065,6 @@ hr {
 
   .home-container {
     text-align: center;
-    background: #f2f2f2;
   }
 
   .home-container h1 {
@@ -1090,33 +1090,148 @@ hr {
   transition: .5s;
 }
 
-/* .intro {
-  width: 100%;
-  height: 50vh;
-  background: #f2f2f2;
-  margin: 0 auto 30px;
+.service {
+  color: #fff;
+  background-color: #30475e;
+  margin: 0 auto 50px;
+  margin: 50px auto;
 }
- */
-.intro-item {
-  height: 50vh;
+
+.service h1 {
+  letter-spacing: 2px;
+  padding: 50px 0 30px;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.service .row {
+  margin: 0 auto;
+}
+
+.intro-i {
+  text-align: center;
+  text-transform: capitalize;
+  margin: 0 auto 30px;
+  font-size: 20px;
+  color: #fff;
+  padding: 20px;
+}
+
+.intro-i i {
+  font-size: 3rem;
+}
+
+.team-bot {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto 10px;
+}
+
+.team-bot .team-card {
+  position: relative;
+  height: 250px;
+  width: 250px;
+  transform-style: preserve-3d;
+  transition: all .5s ease-in-out;
+  border-radius: 20px;
+  margin: 30px;
+}
+
+.team-bot .team-card:hover {
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+.team-bot .team-card:nth-child(2n):hover {
+  transform: rotateZ(30deg);
+  cursor: pointer;
+}
+
+.front {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #fff;
+  border-radius: 20px;
+}
+
+.front img {
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: #dfcdc3;
+  transform: rotateY(180deg);
+  border-radius: 40px;
+  border: 1px solid #30475e;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "like""follow"
+  ;
+}
+
+.back .like, .back .follow .follow-link {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.intro-item:nth-child(2n) {
-  flex-direction: row-reverse;
+.back .like .team-i {
+  margin: 10px 10px 0;
+  font-size: 30px;
 }
 
-.intro img {
-  height: 90%;
-  width: 80%;
-  overflow: hidden;
+.fa-heart {
+  color: #e84a5f;
 }
 
-.intro-i {
+.fa-thumbs-up {
+  color: #6886c5;
+}
+
+.fa-star {
+  color: #ff971d;
+}
+
+.back {
+  text-align: center;
+}
+
+.back .like .team-i:hover, .back .follow .follow-link .fab:hover {
+  transform: scale(1.5);
+  transition: transform .5s;
+}
+
+.back .follow {
+  font-family: 'Indie Flower', cursive;
+  font-size: 30px;
+}
+
+.back .follow .follow-link .fab {
+  margin: 10px;
+  font-size: 20px;
+  color: #30475e;
+}
+
+.author {
+  width: 30%;
+  display: inline-block;
+  margin: 0 30px 30px;
   text-align: center;
   text-transform: uppercase;
-  margin: 0 auto 30px;
+  border-radius: 50px;
 }
