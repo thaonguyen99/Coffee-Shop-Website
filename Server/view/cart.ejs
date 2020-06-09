@@ -7,6 +7,7 @@
   <div class="row">
     <div class="col-md-8 ">
 
+
       <!-- Cart Elements -->
       <div class="cartElements">
 
@@ -49,8 +50,13 @@
             <p><%=item.price%></p>
           </div>
           <div class="col-2">
+            <form method="POST" action="/cart?_method=PUT">
+              <input type="number" name="amount" min="1" value="<%=item.amount%>" size="10">
+              <input type="hidden" name="size" value="<%=item.size%>">
+              <input type="hidden" name="productID" value="<%=item.product._id%>">
+              <input type="hidden" name="price" value="<%=item.price%>">
 
-            <input type="number" name="amount" min="1" value="1" size="10">
+
 
           </div>
 
@@ -70,11 +76,13 @@
             <p class="c-title">Subtotal</p>
           </div>
           <div class="col-2">
-            <p>100000</p>
+            <p><%=totalPrice%></p>
           </div>
-          <div class="col-2">
 
+          <div class="col-2">
+            <button>Check Total</button>
           </div>
+          </form>
         </div>
 
       </div>
@@ -88,7 +96,7 @@
             <h5>Total Items </h5>
           </div>
           <div class="col-6">
-            <h5>4</h5>
+            <h5><%=numberOfItem%></h5>
           </div>
         </div>
         <div class="row">
@@ -96,7 +104,7 @@
             <h5>Subtotal</h5>
           </div>
           <div class="col-6">
-            <h5>100000</h5>
+            <h5><%=totalPrice%></h5>
           </div>
         </div>
         <hr class="my-4">
@@ -123,7 +131,7 @@
             <h5> TOTAL</h5>
           </div>
           <div class="col-6">
-            <h5>100000</h5>
+            <h5><%=totalPrice+30000%></h5>
           </div>
         </div>
 

@@ -110,7 +110,7 @@
   <div class="item">
 
     <img src="<%=item.photo%>" alt="" />
-    <form class="" action="/add-to-cart" method="post">
+    <form class="" action="/product" method="post">
       <div class="itemDetail">
         <h3><%=item.name%></h3>
         <p><%=item.description%></p>
@@ -119,6 +119,7 @@
           <span><input type="radio" name="size" value="S" required=true>S</span>
           <span><input type="radio" name="size" value="M" required=true>M</span>
         </p>
+        <input type="hidden" name="productID" value="<%=item._id%>">
         <button class="cart-btn">Add to cart</button>
       </div>
     </form>
@@ -140,7 +141,7 @@
   <%pastry.forEach(item => {%>
   <div class="item">
     <img src="<%=item.photo%>" alt="" />
-    <form class="" action="/add-to-cart" method="post">
+    <form class="" action="/product" method="post">
       <div class="itemDetail">
         <h3><%=item.name%></h3>
         <p><%=item.description%></p>
@@ -149,6 +150,7 @@
           <span><input type="radio" name="size" value="S" required=true>S</span>
           <span><input type="radio" name="size" value="M" required=true>M</span>
         </p>
+        <input type="hidden" name="productID" value="<%=item._id%>">
         <button class="cart-btn">Add to cart</button>
       </div>
     </form>

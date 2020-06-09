@@ -2,10 +2,11 @@ const express = require('express');
 const connectDB = require('./Server/config/db');
 const bodyParser = require('body-parser');
 const path = require('path');
-const routes = require('./Server/route');
+const routes = require('./Server/Controller');
 const dotenv = require('dotenv');
 const expressSession = require('express-session');
 const checkUser = require('./Server/config/middleware/checkUser');
+const methodOverride = require('method-override');
 
 
 
@@ -17,6 +18,8 @@ dotenv.config({ path: './Server/config/config.env' });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(methodOverride('_method'));
 
 
 app.set('view engine', 'ejs');

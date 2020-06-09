@@ -5,6 +5,9 @@ const OrderSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'User'
   },
+  cart: {
+    type: String
+  },
   orderDate: {
     type: Date
   },

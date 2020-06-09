@@ -33,7 +33,7 @@ ProductRouter.route('/product')
         }
       }
       if (isFound == false) {
-        user.cart.unshift({ productID, size });
+        user.cart.unshift({ productID, size, total: product.price, amount: 1 });
       }
 
       user = await UserRepository.updateUser(user._id, { cart: user.cart });
@@ -62,31 +62,58 @@ ProductRouter.route('/add-product')
 
 
 //View cart
-ProductRouter.get('/cart', checkUser, async (req, res) => {
-  if (!user) {
-    const product = req.session.cart;
-    return res.render('cart', { product });
-  }
-  else {
-    const products = user.cart;
-    let listProduct = [];
-    for (let i = 0; i < products.length; i++) {
-      let size = products[i].size;
-      const product = await ProductRepository.getProductByID(products[i].productID);
-      let price = product.price;
+ProductRouter.route('/cart')
+  .get(checkUser, async (req, res) => {
+    if (!user) {
+      const product = req.session.cart;
+      return res.render('cart', { product });
+    }
+    else {
+      const products = user.cart;
+      let listProduct = [];
+      let totalPrice = 0;
+      let numberOfItem = 0;
 
+      for (let i = 0; i < products.length; i++) {
+        let size = products[i].size;
+        const product = await ProductRepository.getProductByID(products[i].productID);
+        let price = product.price;
+        let amount = products[i].amount;
 
-      if (size == 'M') {
-        price += 20 / 100 * price;
+        if (size == 'M') {
+          price += 20 / 100 * price;
+        }
+
+        listProduct.unshift({ product, size, price, amount });
+        totalPrice += price * amount;
+        numberOfItem += amount;
       }
-      listProduct.unshift({ product, size, price });
+
+
+      return res.render('cart', { listProduct, totalPrice, numberOfItem });
     }
 
-    return res.render('cart', { listProduct });
 
 
-  }
-})
+  })
+
+  .put(checkUser, async (req, res) => {
+    const { amount, size, productID, price } = req.body;
+    user.cart = [];
+    let totalPrice = 0;
+
+    for (let i = 0; i < amount.length; i++) {
+      let quantity = amount[i];
+      let productSize = size[i];
+      let id = productID[i];
+      let subtotal = price[i] * amount[i];
+      totalPrice += subtotal;
+      let newProduct = { amount: quantity, size: productSize, productID: id, total: subtotal }
+      user.cart.unshift(newProduct);
+    }
+    await UserRepository.updateUser(user._id, { cart: user.cart });
+    return res.redirect('/cart');
+  })
 
 
 
