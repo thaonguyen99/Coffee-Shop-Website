@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Allura&family=Dancing+Script:wght@500;700&family=Playball&family=Sacramento&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Lato:wght@400;900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 
 .navbar-light .navbar-brand {
   color: #fff;
@@ -325,12 +325,12 @@ body {
   transition: 0.3s;
 }
 
-.text-box>div {
+.text-box > div {
   position: relative;
   height: 45px;
 }
 
-.text-box>div h5 {
+.text-box > div h5 {
   position: absolute;
   left: 10px;
   top: 50%;
@@ -365,10 +365,12 @@ body {
   font-size: 1.2rem;
   cursor: pointer;
   margin: 1rem 0;
-  background-image: linear-gradient(to right,
-      #222831,
-      #30475e,
-      rgb(181, 142, 74));
+  background-image: linear-gradient(
+    to right,
+    #222831,
+    #30475e,
+    rgb(181, 142, 74)
+  );
   background-size: 200%;
   transition: 0.5s;
 }
@@ -650,9 +652,9 @@ header.is-visible {
 }
 
 .pro-container h2:hover {
-  box-shadow: 300px 0 50px rgba(0, 0, 0, .5);
+  box-shadow: 300px 0 50px rgba(0, 0, 0, 0.5);
   transform: scaleY(1.2);
-  transition: transform .1s;
+  transition: transform 0.1s;
   overflow: hidden;
   text-decoration: overline;
   cursor: alias;
@@ -667,12 +669,12 @@ header.is-visible {
   transform-style: preserve-3d;
   transform: perspective(2000px);
   transition: 1s;
-  box-shadow: inset 300px 0 50px rgba(0, 0, 0, .5);
+  box-shadow: inset 300px 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .pro-card:hover {
   transform: perspective(2000px) rotate(-10deg);
-  box-shadow: inset 50px 0 50px rgba(0, 0, 0, .5);
+  box-shadow: inset 50px 0 50px rgba(0, 0, 0, 0.5);
   z-index: 1000;
   cursor: grabbing;
 }
@@ -710,7 +712,7 @@ header.is-visible {
   color: #fff;
   transform: scaleY(1.2);
   overflow: hidden;
-  transition: transform .5s;
+  transition: transform 0.5s;
 }
 
 .pro-card .sliderText {
@@ -795,8 +797,8 @@ header.is-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 7px 10px rgba(0, 0, 0, .5);
-  transition: .5s ease-in-out;
+  box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
+  transition: 0.5s ease-in-out;
 }
 
 .item:hover {
@@ -812,9 +814,9 @@ header.is-visible {
   top: 0;
   left: 0;
   display: block;
-  background: rgba(0, 0, 0, .7);
+  background: rgba(0, 0, 0, 0.7);
   z-index: 2;
-  transition: .5s all;
+  transition: 0.5s all;
   opacity: 0;
 }
 
@@ -893,15 +895,15 @@ header.is-visible {
   font-weight: 400;
 }
 
-.cartElements, .cartTotal {
+.cartElements,
+.cartTotal {
   border: 2px solid #30475e;
   border-radius: 20px;
   text-align: center;
 }
 
 .cartElements .row:hover {
-  box-shadow: inset 0px 0px 8px 0px #020024,
-    inset 0 0px 1px 0px #091f79,
+  box-shadow: inset 0px 0px 8px 0px #020024, inset 0 0px 1px 0px #091f79,
     inset 0 0px 4px 0px #00d4ff;
 }
 
@@ -916,7 +918,8 @@ header.is-visible {
   background: #f2f2f2;
 }
 
-.cartElements .row:last-child, .cartTotal .row:last-child {
+.cartElements .row:last-child,
+.cartTotal .row:last-child {
   border: none;
 }
 
@@ -949,9 +952,9 @@ hr {
 }
 
 .col-2 input:hover {
-  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, .5);
+  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.5);
   font-weight: bolder;
-  transition: .5s;
+  transition: 0.5s;
   cursor: pointer;
 }
 
@@ -964,7 +967,7 @@ hr {
 .col-2 i:hover {
   cursor: pointer;
   transform: scale3d(1.2, 1.2, 1.3);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .cartElements p {
@@ -995,7 +998,11 @@ hr {
 .shippingInfo input:focus {
   box-shadow: 1px 1px 10px 2px #30475e;
 }
-
+.c-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .checkout {
   width: 90%;
   margin: 20px;
@@ -1010,7 +1017,15 @@ hr {
 .c-checkout {
   margin: 0 30px 30px;
 }
-
+a.button {
+  background-color: #ececec;
+  color: #30475e;
+}
+a.button:hover {
+  background-color: #30475e;
+  color: #ececec;
+}
+/* END OF CART */
 /* HOME-PAGE */
 .sig-row {
   display: flex;
@@ -1047,31 +1062,6 @@ hr {
   text-align: justify;
 }
 
-@media screen and (max-width: 700px) {
-  .carousel-caption {
-    font-size: 1.5rem;
-    top: 5%;
-  }
-
-  .card {
-    width: 250px;
-    height: 325px;
-    margin: 20px;
-  }
-
-  .card-caption {
-    z-index: -1;
-  }
-
-  .home-container {
-    text-align: center;
-  }
-
-  .home-container h1 {
-    text-align: center;
-  }
-}
-
 .home-container h1 {
   padding: 50px 0 30px;
 }
@@ -1083,11 +1073,11 @@ hr {
 }
 
 .intro-arrow:hover {
-  box-shadow: 0 0 30px 0 rgba(0, 0, 0, .5);
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.5);
   background: #30475e;
   color: #fff;
   transform: scale3d(1.5, 1.5, 2.5);
-  transition: .5s;
+  transition: 0.5s;
 }
 
 .service {
@@ -1135,7 +1125,7 @@ hr {
   height: 250px;
   width: 250px;
   transform-style: preserve-3d;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   border-radius: 20px;
   margin: 30px;
 }
@@ -1180,11 +1170,11 @@ hr {
   border: 1px solid #30475e;
   display: grid;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: "like""follow"
-  ;
+  grid-template-areas: "like" "follow";
 }
 
-.back .like, .back .follow .follow-link {
+.back .like,
+.back .follow .follow-link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1211,13 +1201,14 @@ hr {
   text-align: center;
 }
 
-.back .like .team-i:hover, .back .follow .follow-link .fab:hover {
+.back .like .team-i:hover,
+.back .follow .follow-link .fab:hover {
   transform: scale(1.5);
-  transition: transform .5s;
+  transition: transform 0.5s;
 }
 
 .back .follow {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   font-size: 30px;
 }
 
@@ -1234,4 +1225,29 @@ hr {
   text-align: center;
   text-transform: uppercase;
   border-radius: 50px;
+}
+
+@media screen and (max-width: 700px) {
+  .carousel-caption {
+    font-size: 1.5rem;
+    top: 5%;
+  }
+
+  .card {
+    width: 250px;
+    height: 325px;
+    margin: 20px;
+  }
+
+  .card-caption {
+    z-index: -1;
+  }
+
+  .home-container {
+    text-align: center;
+  }
+
+  .home-container h1 {
+    text-align: center;
+  }
 }
