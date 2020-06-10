@@ -65,6 +65,6 @@ app.get("/admin", checkUser, async (req, res) => {
   return res.render("admin", { user });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

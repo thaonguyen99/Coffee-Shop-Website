@@ -66,10 +66,10 @@ ProductRouter.route('/cart')
   .get(checkUser, async (req, res) => {
     if (!user) {
       const product = req.session.cart;
-      return res.render('cart', { product });
+      return res.redirect('/login');
     }
     else {
-      const products = user.cart;
+      let products = user.cart;
       let listProduct = [];
       let totalPrice = 0;
       let numberOfItem = 0;
@@ -80,15 +80,18 @@ ProductRouter.route('/cart')
         let price = product.price;
         let amount = products[i].amount;
 
+
         if (size == 'M') {
           price += 20 / 100 * price;
         }
-
         listProduct.unshift({ product, size, price, amount });
         totalPrice += price * amount;
         numberOfItem += amount;
-      }
 
+      }
+      if (products.length === 0) {
+        listProduct = [];
+      }
 
       return res.render('cart', { listProduct, totalPrice, numberOfItem });
     }
@@ -96,7 +99,7 @@ ProductRouter.route('/cart')
 
 
   })
-
+  //Update quantity & price
   .put(checkUser, async (req, res) => {
     const { amount, size, productID, price } = req.body;
     user.cart = [];
@@ -114,7 +117,22 @@ ProductRouter.route('/cart')
     await UserRepository.updateUser(user._id, { cart: user.cart });
     return res.redirect('/cart');
   })
-
+  //Delete cart
+  .patch(checkUser, async (req, res) => {
+    user.cart = [];
+    await UserRepository.updateUser(user._id, { cart: user.cart });
+    return res.redirect('/cart');
+  })
+  //Delete item in cart
+  .post(checkUser, async (req, res) => {
+    const { productID } = req.body;
+    for (let i = 0; i < user.cart.length; i++) {
+      if (user.cart[i].productID === productID) {
+        user.cart.splice(i, 1);
+      }
+    }
+    return res.redirect('/cart');
+  })
 
 
 module.exports = ProductRouter;
