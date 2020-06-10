@@ -894,7 +894,42 @@ header.is-visible {
   font-size: 3rem;
   font-weight: 400;
 }
-
+#cart-history {
+  padding: 30px;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 400;
+  margin-top: 200px;
+}
+.row span {
+  margin: 50px;
+  font-size: 20px;
+}
+.row span:first-child {
+  margin-top: 0;
+}
+.thank {
+  padding: 30px;
+  text-align: center;
+  margin-top: 130px;
+}
+.thank h1 {
+  font-size: 2.5 rem;
+}
+.thank .row a {
+  color: #30475e;
+  font-size: 1.8rem;
+  margin: 40px 0;
+}
+.thank .row a:hover {
+  color: #c1a57b;
+  font-size: 2rem;
+  transition: 0.1s ease-in-out;
+}
+.thank .row {
+  justify-content: center;
+  align-items: center;
+}
 .cartElements,
 .cartTotal {
   border: 2px solid #30475e;

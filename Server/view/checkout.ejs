@@ -1,11 +1,11 @@
 <%-include("partials/header")-%> <%# CONTENT GOES HERE %>
 
 <h1 id="cart-head" style="text-transform: uppercase; letter-spacing: 3px;">
-  Cart Information
+  Order detail
 </h1>
 <div class="container text-center">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-lg-12">
       <!-- Cart Elements -->
       <div class="cartElements">
         <div class="row">
@@ -27,29 +27,24 @@
         </div>
 
         <!-- For each cart element -->
-        <%listProduct.forEach(item => {%>
+
         <div class="row">
           <div class="col-2">
-            <img class="cartImg" src="<%=item.product.photo%>" alt="" />
+            <img class="cartImg" alt="" />
           </div>
           <div class="col-2">
-            <p><%=item.product.name%></p>
+            <p>Name</p>
           </div>
           <div class="col-2">
-            <p><%=item.size%></p>
+            <p>size</p>
           </div>
           <div class="col-2">
-            <p><%=item.price%></p>
+            <p>price</p>
           </div>
           <div class="col-2">
             <input type="number" name="amount" min="1" value="1" size="10" />
           </div>
-
-          <div class="col-2">
-            <i class="fa fa-trash"> </i>
-          </div>
         </div>
-        <%})%>
 
         <div class="row">
           <div class="col-6"></div>
@@ -63,150 +58,135 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- Cart Total -->
-    <div class="col-md-4">
-      <div class="cartTotal">
+  <h1 id="cart-history" style="text-transform: uppercase; letter-spacing: 3px;">
+    Order History
+  </h1>
+
+  <div class="row">
+    <span>Date: </span>
+    <div class="col-lg-12">
+      <!-- Cart Elements -->
+      <div class="cartElements">
         <div class="row">
-          <div class="col-6">
-            <h5>Total Items</h5>
+          <div class="col-2"></div>
+          <div class="col-2">
+            <p class="c-title">Name</p>
           </div>
-          <div class="col-6">
-            <h5>4</h5>
+          <div class="col-2">
+            <p class="c-title">Size</p>
           </div>
+          <div class="col-2">
+            <p class="c-title">Price</p>
+          </div>
+          <div class="col-2">
+            <p class="c-title">Amount</p>
+          </div>
+
+          <div class="col-2"></div>
         </div>
-        <div class="row">
-          <div class="col-6">
-            <h5>Subtotal</h5>
-          </div>
-          <div class="col-6">
-            <h5>100000</h5>
-          </div>
-        </div>
-        <hr class="my-4" />
-        <div class="row">
-          <div class="col-6">
-            <h5>Tax</h5>
-          </div>
-          <div class="col-6">
-            <h5>5%</h5>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <h5>Shipping Fee</h5>
-          </div>
-          <div class="col-6">
-            <h5>30000</h5>
-          </div>
-        </div>
-        <hr class="my-4" />
+
+        <!-- For each cart element -->
 
         <div class="row">
-          <div class="col-6">
-            <h5>TOTAL</h5>
+          <div class="col-2">
+            <img class="cartImg" alt="" />
           </div>
-          <div class="col-6">
-            <h5>100000</h5>
+          <div class="col-2">
+            <p>Name</p>
           </div>
+          <div class="col-2">
+            <p>size</p>
+          </div>
+          <div class="col-2">
+            <p>price</p>
+          </div>
+          <div class="col-2">
+            <input type="number" name="amount" min="1" value="1" size="10" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6"></div>
+          <div class="col-2">
+            <p class="c-title">Subtotal</p>
+          </div>
+          <div class="col-2">
+            <p>100000</p>
+          </div>
+          <div class="col-2"></div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="container-fluid"></div>
-  <hr class="my-4" />
+  <div class="row">
+    <span>Date: </span>
+    <div class="col-lg-12">
+      <!-- Cart Elements -->
+      <div class="cartElements">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-2">
+            <p class="c-title">Name</p>
+          </div>
+          <div class="col-2">
+            <p class="c-title">Size</p>
+          </div>
+          <div class="col-2">
+            <p class="c-title">Price</p>
+          </div>
+          <div class="col-2">
+            <p class="c-title">Amount</p>
+          </div>
 
-  <div class="shippingInfo">
-    <h1 style="text-transform: uppercase; letter-spacing: 1px;">
-      Shipping Information
+          <div class="col-2"></div>
+        </div>
+
+        <!-- For each cart element -->
+
+        <div class="row">
+          <div class="col-2">
+            <img class="cartImg" alt="" />
+          </div>
+          <div class="col-2">
+            <p>Name</p>
+          </div>
+          <div class="col-2">
+            <p>size</p>
+          </div>
+          <div class="col-2">
+            <p>price</p>
+          </div>
+          <div class="col-2">
+            <input type="number" name="amount" min="1" value="1" size="10" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6"></div>
+          <div class="col-2">
+            <p class="c-title">Subtotal</p>
+          </div>
+          <div class="col-2">
+            <p>100000</p>
+          </div>
+          <div class="col-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="thank">
+    <h1>
+      Thank you for choosing Beanie Beanie <i class="far fa-grin-hearts"></i>
     </h1>
-    <form class="" action="#" method="post">
-      <div class="form-group row">
-        <div class="col-sm-4">
-          <label for="name" class="col-form-label-lg">Customer Name </label>
-        </div>
-        <div class="col-sm-8">
-          <input
-            class="form-control"
-            type="text"
-            name="cusName"
-            id="name"
-            value=""
-            placeholder="First Name - Last Name"
-          />
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <div class="col-sm-4">
-          <label for="contact" class="col-form-label-lg">Contact </label>
-        </div>
-        <div class="col-sm-8">
-          <input
-            class="form-control"
-            type="tel"
-            name="contact"
-            id="contact"
-            value=""
-            placeholder="093-123-456"
-          />
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <div class="col-sm-4">
-          <label for="email" class="col-form-label-lg">Email </label>
-        </div>
-        <div class="col-sm-8">
-          <input
-            class="form-control"
-            type="email"
-            name="email"
-            id="email"
-            placeholder="abc@gmail.com"
-          />
-        </div>
-      </div>
-
-      <div class="form-group row">
-        <div class="col-sm-4">
-          <label for="address" class="col-form-label-lg">Address </label>
-        </div>
-        <div class="col-sm-8">
-          <input
-            class="form-control"
-            type="address"
-            name="address"
-            id="address"
-            placeholder="123 Nguyen Thi Minh Khai Street, Ward 20, District 1"
-          />
-        </div>
-      </div>
-      <div class="row c-checkout">
-        <div class="col-md-2"></div>
-        <div class="col-md-4">
-          <button
-            type="submit"
-            class="btn btn-lg btn-outline-dark checkout"
-            name="button"
-          >
-            <span><i class="fa fa-angle-double-left"></i></span>Continue
-            Shopping
-          </button>
-        </div>
-        <div class="col-md-4">
-          <button
-            type="submit"
-            class="btn btn-lg btn-outline-dark checkout"
-            name="button"
-          >
-            Checkout<span><i class="fa fa-arrow-circle-right"></i></span>
-          </button>
-        </div>
-        <div class="col-md-2"></div>
-      </div>
-    </form>
+    <div class="row">
+      <a href="product"
+        >Click here to order more <i class="fas fa-store"></i
+      ></a>
+    </div>
   </div>
 </div>
 
