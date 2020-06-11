@@ -239,10 +239,10 @@ body {
 .login-box {
   width: 280px;
   position: absolute;
-  top: 55%;
+  top: 45%;
   left: 48%;
   transform: translate(-50%, -50%);
-  color: #30475e;
+  color: #ececec;
   margin-bottom: 100px;
 }
 
@@ -259,7 +259,7 @@ body {
 .login-form h1 {
   font-size: 2.9rem;
   margin: 25px 10px;
-  color: #30475e;
+  color: #ececec;
   text-align: center;
 }
 
@@ -269,17 +269,17 @@ body {
   grid-template-columns: 7% 93%;
   margin: 25px 0;
   padding: 5px 0;
-  border-bottom: 1px solid #222831;
+  border-bottom: 1px solid #ececec;
 }
 
 .text-box.focus .login-i i {
-  color: rgb(181, 142, 74);
+  color: #d7d2cc;
 }
 
 .text-box.focus div h5 {
   top: -5px;
   font-size: 15px;
-  color: rgb(181, 142, 74);
+  color: #d7d2cc;
 }
 
 .text-box:after,
@@ -289,7 +289,7 @@ body {
   bottom: -2px;
   width: 0;
   height: 2px;
-  background-color: rgb(181, 142, 74);
+  background-color: #d7d2cc;
   transition: 0.3s;
 }
 
@@ -321,7 +321,7 @@ body {
 }
 
 .login-i i {
-  color: #30475e;
+  color: #ececec;
   transition: 0.3s;
 }
 
@@ -335,7 +335,7 @@ body {
   left: 10px;
   top: 50%;
   transform: translateY(-50%);
-  color: #222831;
+  color: #ececec;
   font-size: 18px;
   transition: 0.3s;
 }
@@ -351,7 +351,7 @@ body {
   background: none;
   padding: 0.5rem 0.7rem;
   font-size: 1.2rem;
-  color: rgb(181, 142, 74);
+  color: #d7d2cc;
 }
 
 .login-btn {
@@ -361,24 +361,42 @@ body {
   outline: none;
   border: none;
   border-radius: 25px;
-  color: #ececec;
+  color: #222831;
   font-size: 1.2rem;
   cursor: pointer;
   margin: 1rem 0;
-  background-image: linear-gradient(
-    to right,
-    #222831,
-    #30475e,
-    rgb(181, 142, 74)
-  );
-  background-size: 200%;
+  background: linear-gradient(-180deg, #bcc5ce 0%, #929ead 98%),
+    radial-gradient(
+      at top left,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  background-blend-mode: screen;
+  background-size: 150%;
   transition: 0.5s;
 }
 
 .login-btn:hover {
   background-position: right;
 }
-
+.direct-link {
+  width: 360px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-wrap: wrap;
+}
+.direct-link a {
+  color: #929ead;
+}
+.direct-link a:hover {
+  color: #eeeeee;
+  text-decoration: none;
+}
+.login-box .login-container p {
+  margin: 20px 0;
+  color: #d92027;
+}
 /* END OF LOGIN */
 /* CONTACT INFO BOX */
 .bot-centered {
@@ -888,6 +906,10 @@ header.is-visible {
 
 /* END PRODUCT PAGE */
 /* CART */
+.col-2 button {
+  background-color: rgba(0, 0, 0, 0);
+  border: rgba(0, 0, 0, 0);
+}
 #cart-head {
   padding: 30px;
   text-align: center;

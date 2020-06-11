@@ -156,3 +156,7 @@ body {
     width: 170px;
   }
 }
+.sidebar ul hr {
+  width: 100%;
+  color: #e4e4e4;
+}
