@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", function () {
         contentType: "application/json; charset=utf-8",
         success: function (data) {
           tr.remove();
-          total.setAttribute("value", data);
+          total.textContent = data;
         },
         async: false,
         error: function (e) {
@@ -56,8 +56,7 @@ window.addEventListener("DOMContentLoaded", function () {
         data: "",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-          console.log(total);
-          total.setAttribute("value", data);
+          total.textContent = data;
         },
         async: false,
         error: function (e) {

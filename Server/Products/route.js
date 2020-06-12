@@ -71,7 +71,6 @@ ProductRouter.route('/cart')
     }
     else {
       const products = user.cart;
-      console.log(products);
       let listProduct = [];
       let totalPrice = 0;
       let numberOfItems = 0;
@@ -112,6 +111,7 @@ ProductRouter.route('/cart')
   })
   //Delete cart
   .patch(checkUser, async (req, res) => {
+    console.log('1');
     user.cart = [];
     await UserRepository.updateUser(user._id, { cart: user.cart });
     return res.redirect('/cart');
