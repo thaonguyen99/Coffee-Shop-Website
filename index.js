@@ -8,6 +8,7 @@ const expressSession = require("express-session");
 const checkUser = require("./Server/config/middleware/checkUser");
 const methodOverride = require("method-override");
 
+
 const app = express();
 
 dotenv.config({ path: "./Server/config/config.env" });
@@ -40,6 +41,7 @@ app.use("/", routes);
 app.get("/", checkUser, (req, res) => {
   return res.render("homepage", user);
 });
+
 
 app.get("/login", (req, res) => {
   return res.render("login");

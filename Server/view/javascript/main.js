@@ -10,7 +10,7 @@ function scrollFunction() {
   }
 }
 
-backToTop.addEventListener("click", scrollUp);
+// backToTop.addEventListener("click", scrollUp);
 
 function scrollUp() {
   window.scrollTo(0, 0);

@@ -4,6 +4,7 @@ const ProductRepository = require('./repository');
 const UserRepository = require('../Users/repository');
 const checkUser = require('../config/middleware/checkUser');
 const { upload } = require('../config/middleware/multer');
+const { listIndexes } = require('./model');
 //View menu & add to cart
 ProductRouter.route('/product')
   .get(checkUser, async (req, res) => {
@@ -69,31 +70,22 @@ ProductRouter.route('/cart')
       return res.redirect('/login');
     }
     else {
-      let products = user.cart;
+      const products = user.cart;
+      console.log(products);
       let listProduct = [];
       let totalPrice = 0;
-      let numberOfItem = 0;
-
+      let numberOfItems = 0;
       for (let i = 0; i < products.length; i++) {
-        let size = products[i].size;
+        const amount = products[i].amount;
         const product = await ProductRepository.getProductByID(products[i].productID);
-        let price = product.price;
-        let amount = products[i].amount;
-
-
-        if (size == 'M') {
-          price += 20 / 100 * price;
-        }
-        listProduct.unshift({ product, size, price, amount });
-        totalPrice += price * amount;
-        numberOfItem += amount;
-
+        numberOfItems += amount;
+        totalPrice += amount * product.price;
+        listProduct.unshift({ product, amount });
       }
-      if (products.length === 0) {
-        listProduct = [];
-      }
+      const data = { listProduct, totalPrice, numberOfItems };
 
-      return res.render('cart', { listProduct, totalPrice, numberOfItem });
+
+      return res.render('cart', { data });
     }
 
 
@@ -101,21 +93,22 @@ ProductRouter.route('/cart')
   })
   //Update quantity & price
   .put(checkUser, async (req, res) => {
-    const { amount, size, productID, price } = req.body;
-    user.cart = [];
-    let totalPrice = 0;
+    const { amount, productID } = req.query;
+    const product = await ProductRepository.getProductByID(productID);
 
-    for (let i = 0; i < amount.length; i++) {
-      let quantity = amount[i];
-      let productSize = size[i];
-      let id = productID[i];
-      let subtotal = price[i] * amount[i];
-      totalPrice += subtotal;
-      let newProduct = { amount: quantity, size: productSize, productID: id, total: subtotal }
-      user.cart.unshift(newProduct);
+    let totalPrice = 0;
+    for (let i = 0; i < user.cart.length; i++) {
+      if (user.cart[i].productID == productID) {
+        totalPrice += amount * product.price;
+        user.cart[i].total = amount * product.price;
+        user.cart[i].amount = amount;
+      } else {
+        totalPrice += user.cart[i].total;
+      }
     }
+
     await UserRepository.updateUser(user._id, { cart: user.cart });
-    return res.redirect('/cart');
+    return res.end(JSON.stringify(totalPrice));
   })
   //Delete cart
   .patch(checkUser, async (req, res) => {
@@ -125,13 +118,22 @@ ProductRouter.route('/cart')
   })
   //Delete item in cart
   .post(checkUser, async (req, res) => {
-    const { productID } = req.body;
-    for (let i = 0; i < user.cart.length; i++) {
+    const { productID } = req.query;
+    const product = await ProductRepository.getProductByID(productID);
+    let totalPrice = 0;
+    let deleted = 0;
+    for (let i = user.cart.length - 1; i >= 0; i--) {
+      totalPrice += user.cart[i].total;
       if (user.cart[i].productID === productID) {
+        deleted = user.cart[i].total;
         user.cart.splice(i, 1);
       }
-    }
-    return res.redirect('/cart');
+    };
+    totalPrice = totalPrice - deleted;
+    console.log(user.cart);
+    await UserRepository.updateUser(user._id, { cart: user.cart });
+
+    return res.end(JSON.stringify(totalPrice));
   })
 
 

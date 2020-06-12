@@ -1,0 +1,30 @@
+<%-include("partials/header")-%>
+
+<%# CONTENT GOES HERE %>
+
+<table id="cart">
+  <%const products= data.listProduct;%>
+  <%products.forEach(item => {%>
+  <tr id="tr<%=item.product._id%>">
+    <td>
+      <%=item.product.name%>
+    </td>
+    <td>
+      <%=item.product.size%>
+    </td>
+    <td>
+      <%=item.product.price%>
+    </td>
+    <td>
+      <input type="number" value="<%=item.amount%>" data-id="<%=item.product._id%>" class="amount">
+    </td>
+    <td>
+      <button type=" button" data-id="<%=item.product._id%>" class="delete-button">Xoa</button>
+    </td>
+  </tr>
+  <%})%>
+</table>
+
+
+
+<%-include ("partials/footer")-%>
