@@ -53,18 +53,21 @@
 <div class="container home-container ">
   <!-- Signature Drinks -->
 
-  <h1 class="display-4">BB' s Bestseller <span> <a href="/product"><i class="fa fa-arrow-circle-right intro-arrow"></i></a></span></h1>
+  <h1 class="display-4">BB' s Bestseller <span> <a href="/product"><i
+          class="fa fa-arrow-circle-right intro-arrow"></i></a></span></h1>
 
   <!-- <a href="/product">
     <button class="btn btn-outline-dark btn-dark btn-lg">View more</button></a> -->
   <hr class="my-4" />
+
   <div class="container padding">
     <div class="row">
+      <%bestSeller.forEach(item =>{%>
       <div class="col-sm-6 col-md-4 sig-col">
         <div class="card">
-          <img class="card-img-top" src="img/cf4.jpg" />
-          <p class="card-title">Black Vietnamese Coffee</p>
-          <p class="card-text">35.000 VND</p>
+          <img class="card-img-top" src="<%=item.photo%>" />
+          <p class="card-title"><%=item.name%></p>
+          <p class="card-text"><%=item.price%> VND</p>
           <div class="option" display="inline-block">
             <a><button class="btn btn-outline-dark btn-sm">
                 Add to cart
@@ -73,75 +76,7 @@
           </div>
         </div>
       </div>
-
-      <div class="col-sm-6 col-md-4 sig-col">
-        <div class="card">
-          <img class="card-img-top" src="img/cf4.jpg" />
-          <p class="card-title">Black Vietnamese Coffee</p>
-          <p class="card-text">35.000 VND</p>
-          <div class="option" display="inline-block">
-            <a><button class="btn btn-outline-dark btn-sm">
-                Add to cart
-              </button></a>
-            <a><button class="btn btn-primary btn-sm">View details</button></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 sig-col">
-        <div class="card">
-          <img class="card-img-top" src="img/cf4.jpg" />
-          <p class="card-title">Black Vietnamese Coffee</p>
-          <p class="card-text">35.000 VND</p>
-          <div class="option" display="inline-block">
-            <a><button class="btn btn-outline-dark btn-sm">
-                Add to cart
-              </button></a>
-            <a><button class="btn btn-primary btn-sm">View details</button></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 sig-col">
-        <div class="card">
-          <img class="card-img-top" src="img/cf4.jpg" />
-          <p class="card-title">Black Vietnamese Coffee</p>
-          <p class="card-text">35.000 VND</p>
-          <div class="option" display="inline-block">
-            <a><button class="btn btn-outline-dark btn-sm">
-                Add to cart
-              </button></a>
-            <a><button class="btn btn-primary btn-sm">View details</button></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-md-4 sig-col">
-        <div class="card">
-          <img class="card-img-top" src="img/cf4.jpg" />
-          <p class="card-title">Black Vietnamese Coffee</p>
-          <p class="card-text">35.000 VND</p>
-          <div class="option" display="inline-block">
-            <a><button class="btn btn-outline-dark btn-sm">
-                Add to cart
-              </button></a>
-            <a><button class="btn btn-primary btn-sm">View details</button></a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4 sig-col">
-        <div class="card">
-          <img class="card-img-top" src="img/cf4.jpg" />
-          <p class="card-title">Black Vietnamese Coffee</p>
-          <p class="card-text">35.000 VND</p>
-          <div class="option" display="inline-block">
-            <a><button class="btn btn-outline-dark btn-sm">
-                Add to cart
-              </button></a>
-            <a><button class="btn btn-primary btn-sm">View details</button></a>
-          </div>
-        </div>
-      </div>
+      <%})%>
     </div>
   </div>
 </div>
@@ -151,15 +86,20 @@
 
 <!-- About -->
 
-<h1 class="display-4 container home-container">About us <span> <a href="about"><i class="fa fa-arrow-circle-right intro-arrow"></i></a></span></h1>
+<h1 class="display-4 container home-container">About us <span> <a href="about"><i
+        class="fa fa-arrow-circle-right intro-arrow"></i></a></span></h1>
 <!-- <a>
       <button class="btn btn-outline-dark btn-dark btn-lg">View more</button></a> -->
 <hr class="my-4 container" />
 <div class="container intro">
   <div class="row intro-item">
     <div class="col-lg-6">
-      <p>Hello there! Thank you for having visited BB' s website!<br /> We are Vietnamese local shop launch in the middle of 2020. At Beanie Beanie, we offer not only best tastes of coffee and tea but also unforgettable experiences
-        of professional and modern working space. Our priority is the customers' s satisfaction; your happiness is our pleasure. <br /> So, what are you waiting for? Join our BB Community, we are looking forward to serving BB's family. </p>
+      <p>Hello there! Thank you for having visited BB' s website!<br /> We are Vietnamese local shop launch in the
+        middle of 2020. At Beanie Beanie, we offer not only best tastes of coffee and tea but also unforgettable
+        experiences
+        of professional and modern working space. Our priority is the customers' s satisfaction; your happiness is our
+        pleasure. <br /> So, what are you waiting for? Join our BB Community, we are looking forward to serving BB's
+        family. </p>
     </div>
     <div class="col-lg-6">
       <img height=" 100%" width="100%" src="img/about.jpg" alt="" />
@@ -201,10 +141,13 @@
 
 
 <div class="container-fluid team">
-  <h1 class="display-4 container ">Join BB' s Family <span> <a href="contact"><i class="fa fa-arrow-circle-right intro-arrow"></i></a></span> </h1>
+  <h1 class="display-4 container ">Join BB' s Family <span> <a href="contact"><i
+          class="fa fa-arrow-circle-right intro-arrow"></i></a></span> </h1>
   <div class="container ">
-    <a href="/login"><button type="button" class="btn btn-block btn-lg btn-dark author" name="button">Sign In</button> </a>
-    <a href="/register"><button type="button" class="btn  btn-lg btn-outline-primary author" name="button">Sign Up</button> </a>
+    <a href="/login"><button type="button" class="btn btn-block btn-lg btn-dark author" name="button">Sign In</button>
+    </a>
+    <a href="/register"><button type="button" class="btn  btn-lg btn-outline-primary author" name="button">Sign
+        Up</button> </a>
   </div>
   <hr class="my-4 container">
 
@@ -394,9 +337,12 @@
 
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+  integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+  integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 <script src="javascript/main.js"></script>
 <script src="javascript/show-on-scroll.js"></script>
 <%-include ("partials/footer")-%>

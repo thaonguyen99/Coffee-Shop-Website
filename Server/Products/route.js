@@ -19,9 +19,7 @@ ProductRouter.route('/product')
     const product = await ProductRepository.getProductByID(productID);
 
     if (!user) {
-      // const newProduct = { product, size };
-      // req.session.cart.unshift(newProduct);
-      // console.log(req.session);
+
       return res.redirect('/login');
     }
     else {
@@ -90,6 +88,13 @@ ProductRouter.route('/cart')
 
 
   })
+  //Delete cart
+  .patch(checkUser, async (req, res) => {
+    console.log('1');
+    user.cart = [];
+    await UserRepository.updateUser(user._id, { cart: user.cart });
+    return res.redirect('/cart');
+  })
   //Update quantity & price
   .put(checkUser, async (req, res) => {
     const { amount, productID } = req.query;
@@ -109,13 +114,7 @@ ProductRouter.route('/cart')
     await UserRepository.updateUser(user._id, { cart: user.cart });
     return res.end(JSON.stringify(totalPrice));
   })
-  //Delete cart
-  .patch(checkUser, async (req, res) => {
-    console.log('1');
-    user.cart = [];
-    await UserRepository.updateUser(user._id, { cart: user.cart });
-    return res.redirect('/cart');
-  })
+
   //Delete item in cart
   .post(checkUser, async (req, res) => {
     const { productID } = req.query;
@@ -130,7 +129,6 @@ ProductRouter.route('/cart')
       }
     };
     totalPrice = totalPrice - deleted;
-    console.log(user.cart);
     await UserRepository.updateUser(user._id, { cart: user.cart });
 
     return res.end(JSON.stringify(totalPrice));

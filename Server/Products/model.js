@@ -26,6 +26,10 @@ const ProductSchema = mongoose.Schema({
   photo: {
     type: String,
     require: true
+  },
+  sellcount: {
+    type: Number,
+    default: 0
   }
 });
 
