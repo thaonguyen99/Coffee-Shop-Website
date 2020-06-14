@@ -59,10 +59,17 @@ app.get("/about", checkUser, (req, res) => {
   return res.render("about", { user });
 });
 
+app.get("/history", checkUser, (req, res) => {
+  return res.render("history", { user });
+});
+
+
 
 app.get("/admin", checkUser, async (req, res) => {
   return res.render("admin", { user });
 });
+
+
 
 const PORT = process.env.PORT || 5000;
 

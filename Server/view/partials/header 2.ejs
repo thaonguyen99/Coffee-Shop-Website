@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="partials/test.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+
+    <title>Beanie Beanie</title>
+  </head>
+
+  <body>
+    <div class="id=" topnav"">
+      <nav class="navbar navbar-light navbar-expand-lg">
+        <a class="navbar-brand" href="/" style="color:#393e46;">Beanie Beanie</a>
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- <div class="container"> -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/cart"><i class="fa fa-shopping-cart"></i></a>
+          </li>
+          <%if(!user){%>
+          <!--LOGIN LINK -->
+          <li class="nav-item">
+            <a class="nav-link" href="/login"><i class="fa fa-user"></i></a>
+          </li>
+          <!-- SIGN UP LINK -->
+          <li class="nav-item">
+            <a class="nav-link" href="/register"><i class="fa fa-user-cog"></i></a>
+          </li>
+          <%}else{%>
+          <li class="nav-item">
+            <a class="nav-link" href=""><i class="fa fa-user-edit"></i> Hi, <%=user.fullname%></a>
+          </li>
+          <!-- LOG OUT LINK -->
+          <li class="nav-item">
+            <form method="POST" action="/logout">
+              <button id="sign-out-btn" class="nav-link">
+                <i class="fa fa-sign-out nav-link"></i>
+              </button>
+            </form>
+          </li>
+          <%}%>
+            </ul>
+          <!-- </div> -->
+          </nav>
+
+    </div>
+    <div class="subnav">
+      <nav  class="navbar navbar-expand-lg navbar-light justify-content-between ">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav" style="margin: 0 auto;">
+            <li class="nav-item active">
+              <a class="nav-link" href="/"
+              >Home <span class="sr-only">(current)</span></a >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="product">Menu </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+          </ul>
+          <form
+            class="search-bar ml-auto"
+             style="right: 20px; position: absolute;"
+          >
+            <div class="input-group">
+              <div class="input-group-btn">
+                <button
+                  style="
+                border-radius: 0;
+                border-color: rgb(57, 62, 70, 0.3);
+                padding-left: 25px;
+                padding-right: 25px;
+              "
+                  class="btn btn-default"
+                >
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+              <input
+                style="
+              border-radius: 0;
+              background-color: rgb(255, 255, 255, 0.4);
+              border-color: rgb(57, 62, 70, 0.3);
+            "
+                class="form-control"
+                type="text"
+                placeholder="Search"
+                name="search"
+              />
+            </div>
+          </form>
+        </div>
+      </nav>
+    </div>

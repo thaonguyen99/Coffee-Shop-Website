@@ -1,0 +1,78 @@
+<%-include("partials/header")-%>
+
+ <%if(orders && orders.length>0){%>
+
+  <h1 id="cart-history" style="text-transform: uppercase; letter-spacing: 3px;">
+    Order History
+  </h1>
+  <%final.forEach(order=>{%>
+  <span class="day">Date: <%=order.orders.orderDate%> </span>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- Cart Elements -->
+      <div class="cartElements">
+        <div class="row">
+          <div class="col-2"></div>
+          <div class="col-2">
+            <p class="c-title">Name</p>
+          </div>
+          <div class="col-2">
+            <p class="c-title">Size</p>
+          </div>
+          <div class="col-2">
+            <p class="c-title">Price</p>
+          </div>
+          <div class="col-2">
+            <p class="c-title">Amount</p>
+          </div>
+
+          <div class="col-2"></div>
+        </div>
+
+        <!-- For each cart element -->
+        <%order.list.forEach(item=>{%>
+        <div class="row">
+          <div class="col-2">
+            <img class="cartImg" src="<%=item.pro.photo%>" />
+          </div>
+          <div class="col-2">
+            <p><%=item.pro.name%></p>
+          </div>
+          <div class="col-2">
+            <p><%=item.size%></p>
+          </div>
+          <div class="col-2">
+            <p><%=item.pro.price%></p>
+          </div>
+          <div class="col-2">
+            <p><%=item.amount%></p>
+          </div>
+        </div>
+        <%})%>
+        <div class="row">
+          <div class="col-6"></div>
+          <div class="col-2">
+            <p class="c-title">Shipping Fee: 15000</p>
+          </div>
+          <div class="col-2">
+            <p class="c-title">Total</p>
+          </div>
+          <div class="col-2">
+            <p><%=order.orders.total+15000%></p>
+          </div>
+          <div class="col-2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%})%>
+  <%}%>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="javascript/main.js"></script>
+<script src="javascript/show-on-scroll.js"></script>
+<%-include ("partials/footer")-%>
