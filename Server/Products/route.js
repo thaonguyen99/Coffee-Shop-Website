@@ -19,9 +19,7 @@ ProductRouter.route('/product')
     const product = await ProductRepository.getProductByID(productID);
 
     if (!user) {
-      // const newProduct = { product, size };
-      // req.session.cart.unshift(newProduct);
-      // console.log(req.session);
+
       return res.redirect('/login');
     }
     else {

@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 const expressSession = require("express-session");
 const checkUser = require("./Server/config/middleware/checkUser");
 const methodOverride = require("method-override");
+const ProductRepository = require('./Server/Products/repository');
 
 
 const app = express();
@@ -38,8 +39,9 @@ app.use(
 
 app.use("/", routes);
 
-app.get("/", checkUser, (req, res) => {
-  return res.render("homepage", user);
+app.get("/", checkUser, async (req, res) => {
+  const bestSeller = await ProductRepository.getBestSeller();
+  return res.render("homepage", { user, bestSeller });
 });
 
 

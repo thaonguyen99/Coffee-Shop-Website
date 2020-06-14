@@ -49,6 +49,8 @@ OrderRouter.route('/checkout')
       const product = await ProductRepository.getProductByID(cart[i].productID);
       amount = cart[i].amount;
       total += cart[i].amount * product.price;
+      let count = product.sellcount + amount;
+      await ProductRepository.updateProduct(product._id, count);
     }
     await OrderRepository.createOrder({ user: user._id, cart, shipAddress, total, orderDate: Date.now() });
     user.cart = [];
