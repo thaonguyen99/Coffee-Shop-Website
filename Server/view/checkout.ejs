@@ -75,7 +75,7 @@
     </div>
   </div>
 
-  <button>Order!</button>
+  <button class="button btn btn-lg btn-outline-dark checkout">Order!</button>
   </form>
   <%}%> 
 <%if(orders && orders.length>0){%>
@@ -84,7 +84,8 @@
     Order History
   </h1>
   <%final.forEach(order=>{%>
-  <span>Date:<%=order.orders.orderDate%> </span>
+  <span class="day">Date: <%=order.orders.orderDate%> </span>
+
   <div class="row">
     <div class="col-lg-12">
       <!-- Cart Elements -->
