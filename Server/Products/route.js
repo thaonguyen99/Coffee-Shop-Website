@@ -84,7 +84,7 @@ ProductRouter.route('/cart')
       const data = { listProduct, totalPrice, numberOfItems };
 
 
-      return res.render('cart', { data });
+      return res.render('cart', { data, user });
     }
 
 

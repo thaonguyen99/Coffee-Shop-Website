@@ -5,20 +5,16 @@ const createOrder = async (order) => {
 }
 
 const viewOrderByUser = async (id) => {
-  return await Order.find({ user: id });
+  return await Order.find({ user: id }).populate({ path: 'cart.productID', model: 'Product' });
 }
 
 const findCart = async (id) => {
-  return await Order.findOne({ user: id }).populate('user');
+  return await Order.find({ user: id }).populate('cart.productID');
 }
 
-const findProduct = async (userid, productid) => {
-  console.log(await Order.findOne({ user: userid }).findOne({ productID: productid }));
-}
 
 module.exports = {
   createOrder,
   viewOrderByUser,
-  findCart,
-  findProduct
+  findCart
 };

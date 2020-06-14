@@ -1,10 +1,12 @@
 <%-include("partials/header")-%> <%# CONTENT GOES HERE %>
-<%if(listProduct && listProduct.length>0){%>
 
-<h1 id="cart-head" style="text-transform: uppercase; letter-spacing: 3px;">
-  Order detail
-</h1>
+
+
 <div class="container text-center">
+  <%if(listProduct && listProduct.length>0){%>
+  <h1 id="cart-head" style="text-transform: uppercase; letter-spacing: 3px;">
+    Order detail
+  </h1>
   <div class="row">
     <div class="col-lg-12">
       <!-- Cart Elements -->
@@ -39,7 +41,7 @@
               <p><%=item.product.name%></p>
             </div>
             <div class="col-2">
-              <p><%=item.product.size%></p>
+              <p><%=item.size%></p>
             </div>
             <div class="col-2">
               <p><%=item.product.price%></p>
@@ -72,13 +74,11 @@
   <h1 id="cart-history" style="text-transform: uppercase; letter-spacing: 3px;">
     Order History
   </h1>
-  <%orders.forEach(order=>{%>
-  <span>Date:<%=order.orderDate%> </span>
+  <%final.forEach(order=>{%>
+  <span>Date:<%=order.orders.orderDate%> </span>
   <div class="row">
-
     <div class="col-lg-12">
       <!-- Cart Elements -->
-
       <div class="cartElements">
         <div class="row">
           <div class="col-2"></div>
@@ -99,22 +99,22 @@
         </div>
 
         <!-- For each cart element -->
-        <%list.forEach(item=>{%>
+        <%order.list.forEach(item=>{%>
         <div class="row">
           <div class="col-2">
-            <img class="cartImg" src="<%=item.product.photo%>" />
+            <img class="cartImg" src="<%=item.pro.photo%>" />
           </div>
           <div class="col-2">
-            <p><%=item.product.name%></p>
+            <p><%=item.pro.name%></p>
           </div>
           <div class="col-2">
-            <p><%=item.product.size%></p>
+            <p><%=item.size%></p>
           </div>
           <div class="col-2">
-            <p><%=item.product.price%></p>
+            <p><%=item.pro.price%></p>
           </div>
           <div class="col-2">
-            <p><%=item.cart.amount%></p>
+            <p><%=item.amount%></p>
           </div>
         </div>
         <%})%>

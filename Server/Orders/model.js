@@ -6,8 +6,16 @@ const OrderSchema = new mongoose.Schema({
     ref: 'User'
   },
   cart: [{
-    type: mongoose.Types.ObjectId,
-    ref: 'Cart'
+    productID: {
+      type: mongoose.Types.ObjectId,
+      ref: 'Product'
+    },
+    amount: {
+      default: 1,
+      type: Number
+    },
+    size: String,
+    total: Number
   }],
   orderDate: {
     type: Date

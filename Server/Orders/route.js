@@ -12,28 +12,34 @@ OrderRouter.route('/checkout')
     const products = user.cart;
     let totalPrice = 0;
     let listProduct = [];
-    let list = [];
+    let final = [];
     let amount = 0;
+    let size;
     for (let i = 0; i < products.length; i++) {
       const product = await ProductRepository.getProductByID(products[i].productID);
       amount = products[i].amount;
+      size = products[i].size;
       totalPrice += products[i].amount * product.price;
-      listProduct.push({ product, amount });
+      listProduct.push({ product, amount, size });
     }
-
     for (let i = 0; i < orders.length; i++) {
-      let cart = orders[i].cart;
-      let product;
-      for (let j = 0; j < cart.length; j++) {
-        product = await ProductRepository.getProductByID(cart[j].productID);
+      const order = orders[i].cart;
+      let amount;
+      let size;
+      let list = [];
+      for (let j = 0; j < order.length; j++) {
+        const pro = await ProductRepository.getProductByID(order[j].productID);
+        amount = order[j].amount;
+        size = order[j].size;
+        list.push({ pro, amount, size });
       }
-      list.push({ product, cart });
-    }
-    console.log(products[0].productID);
-    const view = await OrderRepository.findProduct(user._id, products[0].productID);
-    console.log(view);
+      final.unshift({ list, orders: orders[i] });
 
-    return res.render('checkout', { listProduct, totalPrice, orders, list });
+    }
+
+
+
+    return res.render('checkout', { listProduct, totalPrice, orders, final });
   })
   .post(checkUser, async (req, res) => {
     const cart = user.cart;
@@ -44,8 +50,9 @@ OrderRouter.route('/checkout')
       amount = cart[i].amount;
       total += cart[i].amount * product.price;
     }
-    user.cart = [];
+
     await OrderRepository.createOrder({ user: user._id, cart, shipAddress, total, orderDate: Date.now() });
+    user.cart = [];
     await UserRepository.updateUser(user._id, { cart: user.cart });
     return res.redirect('/checkout');
 
