@@ -25,6 +25,9 @@
           <div class="col-2">
             <p class="c-title">Amount</p>
           </div>
+          <div class="col-2">
+            <p class="c-title">Subtotal</p>
+          </div>
 
           <div class="col-2"></div>
         </div>
@@ -49,16 +52,22 @@
             <div class="col-2">
               <p><%=item.amount%></p>
             </div>
+            <div class="col-2">
+              <p><%=totalPrice%></p>
+            </div>
           </div>
           <%})%>
 
           <div class="row">
             <div class="col-6"></div>
             <div class="col-2">
-              <p class="c-title">Subtotal</p>
+              <p class="c-title">Shipping Fee: 15000</p>
             </div>
             <div class="col-2">
-              <p><%=totalPrice%></p>
+              <p class="c-title">Total</p>
+            </div>
+            <div class="col-2">
+              <p><%=totalPrice+15000%></p>
             </div>
             <div class="col-2"></div>
           </div>
@@ -121,10 +130,13 @@
         <div class="row">
           <div class="col-6"></div>
           <div class="col-2">
+            <p class="c-title">Shipping Fee: 15000</p>
+          </div>
+          <div class="col-2">
             <p class="c-title">Total</p>
           </div>
           <div class="col-2">
-            <p><%=order.total%></p>
+            <p><%=order.orders.total+15000%></p>
           </div>
           <div class="col-2"></div>
         </div>

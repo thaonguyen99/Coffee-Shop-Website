@@ -1,8 +1,8 @@
 const express = require('express');
 const UserRouter = express.Router();
 const UserRepository = require('./repository');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+// const bcrypt = require('bcrypt');
+// const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator');
 const redirectToHome = require('../config/middleware/redirectToHome');
 const checkUser = require('../config/middleware/checkUser');
@@ -49,11 +49,11 @@ UserRouter.route('/register')
         }
         const user = await UserRepository.create(newUser);
         //Encrypt password
-        const salt = await bcrypt.genSalt(10);
+        // const salt = await bcrypt.genSalt(10);
 
-        user.password = await bcrypt.hash(password, salt);
+        // user.password = await bcrypt.hash(password, salt);
 
-        await user.save();
+        // await user.save();
 
         req.session.user = user;
 
@@ -83,8 +83,8 @@ UserRouter.route('/login')
         return res.render('login', { success: false, msg: 'User not exist' });
       }
 
-      const isMatch = await bcrypt.compare(password, userExist.password);
-      if (!isMatch) {
+      // const isMatch = await bcrypt.compare(password, userExist.password);
+      if (userExist.password !== password) {
         return res.status(400).render('login', { success: false, msg: 'Password is not match' });
       }
 

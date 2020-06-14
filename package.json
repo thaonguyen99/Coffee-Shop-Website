@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/thaonguyen99/Coffee-Shop-Website#readme",
   "dependencies": {
-    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "config": "^3.3.1",
     "cookie-session": "^1.4.0",

@@ -50,7 +50,6 @@ OrderRouter.route('/checkout')
       amount = cart[i].amount;
       total += cart[i].amount * product.price;
     }
-
     await OrderRepository.createOrder({ user: user._id, cart, shipAddress, total, orderDate: Date.now() });
     user.cart = [];
     await UserRepository.updateUser(user._id, { cart: user.cart });

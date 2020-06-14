@@ -33,7 +33,10 @@ window.addEventListener("DOMContentLoaded", function () {
     updateAmountBtns[i].addEventListener("change", function () {
       let product_id = this.dataset.id;
       let amount = this.value;
+      let subtotal1 = document.getElementById('subtotal1');
+      let subtotal2 = document.getElementById('subtotal2');
       let total = document.getElementById('total');
+
 
 
       // $.ajax({
@@ -56,7 +59,8 @@ window.addEventListener("DOMContentLoaded", function () {
         data: "",
         contentType: "application/json; charset=utf-8",
         success: function (data) {
-          total.textContent = data;
+          subtotal1.textContent = data;
+          subtotal2.textContent = data;
         },
         async: false,
         error: function (e) {
