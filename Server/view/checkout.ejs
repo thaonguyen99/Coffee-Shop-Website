@@ -1,4 +1,5 @@
 <%-include("partials/header")-%> <%# CONTENT GOES HERE %>
+<%if(listProduct && listProduct.length>0){%>
 
 <h1 id="cart-head" style="text-transform: uppercase; letter-spacing: 3px;">
   Order detail
@@ -28,46 +29,56 @@
 
         <!-- For each cart element -->
 
-        <div class="row">
-          <div class="col-2">
-            <img class="cartImg" alt="" />
+        <form action="/checkout" method="post">
+          <%listProduct.forEach(item =>{%>
+          <div class="row">
+            <div class="col-2">
+              <img class="cartImg" src="<%=item.product.photo%>" />
+            </div>
+            <div class="col-2">
+              <p><%=item.product.name%></p>
+            </div>
+            <div class="col-2">
+              <p><%=item.product.size%></p>
+            </div>
+            <div class="col-2">
+              <p><%=item.product.price%></p>
+            </div>
+            <div class="col-2">
+              <p><%=item.amount%></p>
+            </div>
           </div>
-          <div class="col-2">
-            <p>Name</p>
-          </div>
-          <div class="col-2">
-            <p>size</p>
-          </div>
-          <div class="col-2">
-            <p>price</p>
-          </div>
-          <div class="col-2">
-            <p>1</p>
-          </div>
-        </div>
+          <%})%>
 
-        <div class="row">
-          <div class="col-6"></div>
-          <div class="col-2">
-            <p class="c-title">Subtotal</p>
+          <div class="row">
+            <div class="col-6"></div>
+            <div class="col-2">
+              <p class="c-title">Subtotal</p>
+            </div>
+            <div class="col-2">
+              <p><%=totalPrice%></p>
+            </div>
+            <div class="col-2"></div>
           </div>
-          <div class="col-2">
-            <p>100000</p>
-          </div>
-          <div class="col-2"></div>
-        </div>
       </div>
     </div>
   </div>
+
+  <button>Order!</button>
+  </form>
+  <%}%> 
+<%if(orders && orders.length>0){%>
 
   <h1 id="cart-history" style="text-transform: uppercase; letter-spacing: 3px;">
     Order History
   </h1>
-
+  <%orders.forEach(order=>{%>
+  <span>Date:<%=order.orderDate%> </span>
   <div class="row">
-    <span>Date: </span>
+
     <div class="col-lg-12">
       <!-- Cart Elements -->
+
       <div class="cartElements">
         <div class="row">
           <div class="col-2"></div>
@@ -88,32 +99,32 @@
         </div>
 
         <!-- For each cart element -->
-
+        <%list.forEach(item=>{%>
         <div class="row">
           <div class="col-2">
-            <img class="cartImg" alt="" />
+            <img class="cartImg" src="<%=item.product.photo%>" />
           </div>
           <div class="col-2">
-            <p>Name</p>
+            <p><%=item.product.name%></p>
           </div>
           <div class="col-2">
-            <p>size</p>
+            <p><%=item.product.size%></p>
           </div>
           <div class="col-2">
-            <p>price</p>
+            <p><%=item.product.price%></p>
           </div>
           <div class="col-2">
-            <p>1</p>
+            <p><%=item.cart.amount%></p>
           </div>
         </div>
-
+        <%})%>
         <div class="row">
           <div class="col-6"></div>
           <div class="col-2">
-            <p class="c-title">Subtotal</p>
+            <p class="c-title">Total</p>
           </div>
           <div class="col-2">
-            <p>100000</p>
+            <p><%=order.total%></p>
           </div>
           <div class="col-2"></div>
         </div>
@@ -121,71 +132,15 @@
     </div>
   </div>
 
-  <div class="row">
-    <span>Date: </span>
-    <div class="col-lg-12">
-      <!-- Cart Elements -->
-      <div class="cartElements">
-        <div class="row">
-          <div class="col-2"></div>
-          <div class="col-2">
-            <p class="c-title">Name</p>
-          </div>
-          <div class="col-2">
-            <p class="c-title">Size</p>
-          </div>
-          <div class="col-2">
-            <p class="c-title">Price</p>
-          </div>
-          <div class="col-2">
-            <p class="c-title">Amount</p>
-          </div>
-
-          <div class="col-2"></div>
-        </div>
-
-        <!-- For each cart element -->
-
-        <div class="row">
-          <div class="col-2">
-            <img class="cartImg" alt="" />
-          </div>
-          <div class="col-2">
-            <p>Name</p>
-          </div>
-          <div class="col-2">
-            <p>size</p>
-          </div>
-          <div class="col-2">
-            <p>price</p>
-          </div>
-          <div class="col-2">
-            <p>1</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-6"></div>
-          <div class="col-2">
-            <p class="c-title">Subtotal</p>
-          </div>
-          <div class="col-2">
-            <p>100000</p>
-          </div>
-          <div class="col-2"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+  <%})%>
+  <%}%>
+  
   <div class="thank">
     <h1>
       Thank you for choosing Beanie Beanie <i class="far fa-grin-hearts"></i>
     </h1>
     <div class="row">
-      <a href="product"
-        >Click here to order more <i class="fas fa-store"></i
-      ></a>
+      <a href="product">Click here to order more <i class="fas fa-store"></i></a>
     </div>
   </div>
 </div>

@@ -5,25 +5,22 @@ const OrderSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'User'
   },
-  cart: {
-    type: String
-  },
+  cart: [{
+    type: mongoose.Types.ObjectId,
+    ref: 'Cart'
+  }],
   orderDate: {
     type: Date
-  },
-  orderStatus: {
-    type: String,
-    enum: [
-      'Order Succeed',
-      'Delivering',
-      'Comfirm'
-    ]
   },
   shipAddress: {
     type: String,
     require: true
   },
   shippingFee: {
+    type: Number,
+    default: 15000
+  },
+  total: {
     type: Number
   }
 });

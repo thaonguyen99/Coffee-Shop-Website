@@ -59,9 +59,6 @@ app.get("/about", checkUser, (req, res) => {
   return res.render("about", { user });
 });
 
-app.get("/checkout", checkUser, (req, res) => {
-  return res.render("checkout", { user });
-});
 
 app.get("/admin", checkUser, async (req, res) => {
   return res.render("admin", { user });
