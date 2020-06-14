@@ -22,7 +22,7 @@ ProductRouter.route('/product')
       // const newProduct = { product, size };
       // req.session.cart.unshift(newProduct);
       // console.log(req.session);
-      res.json('Sign Up');
+      return res.redirect('/login');
     }
     else {
       let isFound = false;

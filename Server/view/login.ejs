@@ -1,63 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-    />
-    <title>Beanie Beanie</title>
 
-    <style>
-      body {
-        background: url(img/dark-bg.jpg) no-repeat;
-        background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-        width: 100%;
-        height: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="login-box">
-      <div class="login-container">
-        <form class="login-form" method="POST" action="/login">
-          <h1 style="font-family: 'Allura', cursive;">Welcome</h1>
-          <div class="text-box one">
-            <div class="login-i">
-              <i class="fa fa-user"></i>
-            </div>
-            <div>
-              <h5>Username</h5>
-              <input class="input" type="username" name="username" />
-            </div>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
+  <title>Beanie Beanie</title>
 
-          <div class="text-box two">
-            <div class="login-i">
-              <i class="fa fa-lock"></i>
-            </div>
-            <div>
-              <h5>Password</h5>
-              <input class="input" type="password" name="password" />
-            </div>
+  <style>
+    body {
+      background: url(img/dark-bg.jpg) no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-box">
+    <div class="login-container">
+      <form class="login-form" method="POST" action="/login">
+        <h1 style="font-family: 'Allura', cursive;">Welcome</h1>
+        <div class="text-box one">
+          <div class="login-i">
+            <i class="fa fa-user"></i>
           </div>
-          <p><%if(success===false){%> <%=msg%> <%}%></p>
+          <div>
+            <h5>Username</h5>
+            <input class="input" type="username" name="username" />
+          </div>
+        </div>
+
+        <div class="text-box two">
+          <div class="login-i">
+            <i class="fa fa-lock"></i>
+          </div>
+          <div>
+            <h5>Password</h5>
+            <input class="input" type="password" name="password" />
+          </div>
+        </div>
+        <p><%if(success===false){%> <%=msg%> <%}%></p>
           <input class="login-btn" type="submit" value="Login" />
         </form>
       </div>
       <div class="direct-link">
-        <a href="register">Create an account now</a>
-        <a href="homepage">Back to <i class="fas fa-home"></i></a>
+        <a href="/register">Create an account now</a>
+        <a href="/">Back to <i class="fas fa-home"></i></a>
       </div>
     </div>
   </body>
