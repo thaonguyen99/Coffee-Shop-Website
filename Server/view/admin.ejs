@@ -3,7 +3,7 @@
   <div class="item">
     <h1>Product Management</h1>
   </div>
-  <div class="item product-board container" style="text-align: center; ">
+  <div class="item product-board container" style="text-align: center; " id=table>
     <div class="row header">
       <div class="col-2">
         <p>Name</p>
@@ -25,29 +25,29 @@
 
       </div>
     </div>
-
+    <%products.forEach(item=>{%>
     <div class="row">
       <div class="col-2">
-        <p>Black Coffee</p>
+        <p><%=item.name%></p>
       </div>
       <div class="col-2">
-        <p>Coffee</p>
+        <p><%=item.category%></p>
       </div>
       <div class="col-2">
-        <p>abcd</p>
+        <p><%=item.description%></p>
       </div>
       <div class="col-2">
-        <p>340000</p>
+        <p><%=item.price%></p>
       </div>
       <div class="col-2">
-        <img class="product-img" src="img/cf1.jpg" alt="">
+        <img class="product-img" src="<%=item.photo%>" alt="">
       </div>
       <div class="col-2">
         <div class="row edit">
-          <div class="col-4">
+          <div class="col-4" id="edit">
             <i class="far fa-edit"></i>
           </div>
-          <div class="col-4">
+          <div class="col-4 delete-button">
             <i class="fa fa-times"></i>
           </div>
           <div class="col-4">
@@ -57,38 +57,8 @@
 
       </div>
     </div>
+    <%})%>
 
-    <div class="row">
-      <div class="col-2">
-        <p>Black Coffee</p>
-      </div>
-      <div class="col-2">
-        <p>Coffee</p>
-      </div>
-      <div class="col-2">
-        <p>abcd</p>
-      </div>
-      <div class="col-2">
-        <p>340000</p>
-      </div>
-      <div class="col-2 product-img">
-        <img class="product-img" src="img/cf1.jpg" alt="">
-      </div>
-      <div class="col-2">
-        <div class="row edit">
-          <div class="col-4">
-            <i class="far fa-edit"></i>
-          </div>
-          <div class="col-4">
-            <i class="fa fa-times"></i>
-          </div>
-          <div class="col-4">
-            <i class="fa fa-check"></i>
-          </div>
-        </div>
-
-      </div>
-    </div>
   </div>
 </div>
 

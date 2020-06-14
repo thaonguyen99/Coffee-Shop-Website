@@ -61,9 +61,6 @@ app.get("/about", checkUser, (req, res) => {
   return res.render("about", { user });
 });
 
-app.get("/history", checkUser, (req, res) => {
-  return res.render("history", { user });
-});
 
 
 

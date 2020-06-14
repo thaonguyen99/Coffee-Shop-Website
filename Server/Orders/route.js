@@ -5,6 +5,7 @@ const UserRepository = require('../Users/repository');
 const ProductRepository = require('../Products/repository');
 const OrderRepository = require('./repository');
 const User = require('../Users/model');
+const Order = require('./model');
 
 OrderRouter.route('/checkout')
   .get(checkUser, async (req, res) => {
@@ -58,5 +59,32 @@ OrderRouter.route('/checkout')
     return res.redirect('/checkout');
 
   })
+//View history 
 
+OrderRouter.route('/history')
+  .get(checkUser, async (req, res) => {
+    if (!user) {
+      return res.redirect('/login');
+    }
+    const orders = await OrderRepository.viewOrderByUser(user._id);
+    let final = [];
+    for (let i = 0; i < orders.length; i++) {
+      const order = orders[i].cart;
+      let amount;
+      let size;
+      let list = [];
+      for (let j = 0; j < order.length; j++) {
+        const pro = await ProductRepository.getProductByID(order[j].productID);
+        amount = order[j].amount;
+        size = order[j].size;
+        list.push({ pro, amount, size });
+      }
+      final.unshift({ list, orders: orders[i] });
+
+    }
+
+
+
+    return res.render('history', { orders, final });
+  })
 module.exports = OrderRouter;

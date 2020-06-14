@@ -134,5 +134,11 @@ ProductRouter.route('/cart')
     return res.end(JSON.stringify(totalPrice));
   })
 
+//Admin route
+ProductRouter.route('/admin')
+  .get(async (req, res) => {
+    const products = await ProductRepository.getAllProducts();
 
+    return res.render('admin', { products });
+  })
 module.exports = ProductRouter;

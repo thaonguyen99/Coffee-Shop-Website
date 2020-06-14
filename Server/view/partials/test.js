@@ -1,5 +1,4 @@
 window.addEventListener("DOMContentLoaded", function () {
-  console.log(1);
   const table = document.getElementById("cart");
   const deleteBtns = table.getElementsByClassName("delete-button");
   const updateAmountBtns = table.getElementsByClassName("amount");
