@@ -1,64 +1,74 @@
 <%# CONTENT GOES HERE %>
-<link rel="stylesheet" href="style.css" />
+<!-- <link rel="stylesheet" href="style.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-<div class="container text-center">
-  <form action="/admin/add-product" method="post" enctype="multipart/form-data">
-    <h1 style="font-family: 'Allura', cursive;">Add product</h1>
-    <div class="text-box one">
-      <div class="login-i">
-        <i class="fa fa-id-card"></i>
-      </div>
-      <div>
-        <h5>Name</h5>
-        <input class="input" type="text" name="name" />
-      </div>
-    </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> -->
 
-    <div class="text-box one">
-      <div class="login-i">
-        <i class="fa fa-user"></i>
+<%-include("partials/adminHeader")-%>
+<div class="main-container">
+  <div class="item item-add container text-center">
+    <form action="/admin/add-product" method="post" enctype="multipart/form-data">
+      <h1 style="margin: 30px; line-height:1.5; letter-spacing: 1px; ">ADD NEW PRODUCT</h1>
+      <div class="row form-group ">
+        <div class="col-sm-3 col-form-label-lg">
+          <p>Name</p>
+        </div>
+        <div class="col-8">
+          <input class="form-control" type="text" name="name" size="100" />
+        </div>
       </div>
-      <div>
-        <h5>Category</h5>
-        <input type="radio" name="category" value="Coffee" />Coffee
-        <input type="radio" name="category" value="Tea" />Tea
-        <input type="radio" name="category" value="Pastry" />Pastry
+      <div class="row form-group ">
+        <div class="col-sm-3 col-form-label-lg">
+          <p>Category</p>
+        </div>
+        <div class="col-8">
+          <div class="row">
+            <div class=" col-sm-4 form-check">
+              <input id="coffee" class="form-check-input" type="radio" name="category" value="Coffee" />
+              <label class="form-check-label" for="coffee">Coffee</label>
+            </div>
+            <div class=" col-sm-4 form-check">
+              <input id="tea" class="form-check-input" type="radio" name="category" value="Tea" />
+              <label class="form-check-label" for="tea">Tea</label>
+            </div>
+            <div class=" col-sm-4 form-check">
+              <input id="pastry" class="form-check-input" type="radio" name="category" value="Pastry" />
+              <label class="form-check-label" for="pastry">Pastry</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row form-group ">
+        <div class="col-sm-3 col-form-label-lg">
+          <p>Description</p>
+        </div>
+        <div class="col-8">
+          <input class="form-control" type="text" name="description" size="100" />
+        </div>
+      </div>
+      <div class="row form-group ">
+        <div class="col-sm-3 col-form-label-lg">
+          <p>Price</p>
+        </div>
+        <div class="col-8">
+          <input class="form-control" type="text" name="price" size="100" />
+        </div>
+      </div>
+      <div class="row form-group ">
+        <div class="col-sm-3 col-form-label-lg">
+          <p>Photo</p>
+        </div>
+        <div class="col-8">
+          <input type="file" name="photo" />
+        </div>
+      </div>
 
-      </div>
-    </div>
+      <button class="button btn-lg btn-outline-dark checkout">Add</button>
+    </form>
+  </div>
 
-    <div class="text-box one">
-      <div class="login-i">
-        <i class="fa fa-home"></i>
-      </div>
-      <div>
-        <h5>Description</h5>
-        <input class="input" type="text" name="description" />
-      </div>
-    </div>
-
-    <div class="text-box one">
-      <div class="login-i">
-        <i class="fa fa-mobile"></i>
-      </div>
-      <div>
-        <h5>Price</h5>
-        <input class="input" type="text" name="price" />
-      </div>
-    </div>
-
-    <div class="text-box one">
-      <div class="login-i">
-        <i class="fa fa-envelope"></i>
-      </div>
-      <div>
-        <h5>Photo</h5>
-        <input type="file" name="photo" />
-      </div>
-    </div>
-    <button class="button btn btn-lg btn-outline-dark checkout">Add</button>
-  </form>
 </div>
-<%-include ("partials/footer")-%>
+
+
+
+<%-include("partials/adminFooter")-%>

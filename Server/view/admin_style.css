@@ -244,3 +244,9 @@ body {
   width: 60%;
   height: 70%;
 }
+
+.item-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
