@@ -21,7 +21,9 @@ const updateUser = async (id, user) => {
 }
 
 
-
+const getAllUsers = async () => {
+  return await User.find();
+}
 
 
 
@@ -29,5 +31,6 @@ module.exports = {
   create,
   findUserById,
   updateUser,
-  findUserByUsername
+  findUserByUsername,
+  getAllUsers
 }

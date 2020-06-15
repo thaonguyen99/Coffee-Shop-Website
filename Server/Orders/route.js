@@ -86,5 +86,9 @@ OrderRouter.route('/history')
 
 
     return res.render('history', { orders, final });
-  })
+  });
+
+//Admin route
+
+
 module.exports = OrderRouter;

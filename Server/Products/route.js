@@ -43,21 +43,6 @@ ProductRouter.route('/product')
   })
 
 
-//Add products
-ProductRouter.route('/admin/add-product')
-  .get((req, res) => {
-    return res.render('add-product');
-  })
-  .post(upload.single('photo'), async (req, res) => {
-    const { name, category, description, price } = req.body;
-    const photo = 'https://beanie-beanie.herokuapp.com/img/' + req.file.filename;
-    const newProduct = { name, category, description, price, photo };
-
-    const product = await ProductRepository.createProduct(newProduct);
-    console.log(product);
-    return res.redirect('/admin');
-  }
-  );
 
 
 //View cart
@@ -141,4 +126,24 @@ ProductRouter.route('/admin')
 
     return res.render('admin', { products });
   })
+  .post(async (req, res) => {
+
+  })
+
+
+//Add products
+ProductRouter.route('/admin/add-product')
+  .get((req, res) => {
+    return res.render('add-product');
+  })
+  .post(upload.single('photo'), async (req, res) => {
+    const { name, category, description, price } = req.body;
+    const photo = 'https://beanie-beanie.herokuapp.com/img/' + req.file.filename;
+    const newProduct = { name, category, description, price, photo };
+
+    const product = await ProductRepository.createProduct(newProduct);
+    console.log(product);
+    return res.redirect('/admin');
+  }
+  );
 module.exports = ProductRouter;

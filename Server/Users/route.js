@@ -103,5 +103,10 @@ UserRouter.route('/logout')
   });
 
 
-
+//Admin route
+UserRouter.route('/admin/user')
+  .get(async (req, res) => {
+    const users = UserRepository.getAllUsers();
+    return res.render('users', { users });
+  })
 module.exports = UserRouter;
