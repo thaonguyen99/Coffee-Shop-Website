@@ -1,8 +1,61 @@
 <%-include("partials/header")-%>
 
 <%# CONTENT GOES HERE %>
-<form class="" action="index.html" method="post">
+<form class="" action="" method="post">
+  <div class="login-box">
+    <div class="login-container">
+      <form class="login-form" method="POST" action="">
+        <h1 style="font-family: 'Allura', cursive;">Add product</h1>
+        <div class="text-box one">
+          <div class="login-i">
+            <i class="fa fa-id-card"></i>
+          </div>
+          <div>
+            <h5>Name</h5>
+            <input class="input" type="text" name="name" />
+          </div>
+        </div>
 
-</form>
+        <div class="text-box one">
+          <div class="login-i">
+            <i class="fa fa-user"></i>
+          </div>
+          <div>
+            <h5>Category</h5>
+            <input class="input" type="text" name="category" />
+          </div>
+        </div>
 
-<%-include ("partials/footer")-%>
+        <div class="text-box one">
+          <div class="login-i">
+            <i class="fa fa-home"></i>
+          </div>
+          <div>
+            <h5>Description</h5>
+            <input class="input" type="text" name="description" />
+          </div>
+        </div>
+
+        <div class="text-box one">
+          <div class="login-i">
+            <i class="fa fa-mobile"></i>
+          </div>
+          <div>
+            <h5>Price</h5>
+            <input class="input" type="text" name="price" />
+          </div>
+        </div>
+
+        <div class="text-box one">
+          <div class="login-i">
+            <i class="fa fa-envelope"></i>
+          </div>
+          <div>
+            <h5>Photo</h5>
+            <input class="input" type="text" name="photo" />
+          </div>
+        </div>
+
+      </form>
+
+      <%-include ("partials/footer")-%>

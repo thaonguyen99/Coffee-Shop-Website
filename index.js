@@ -61,11 +61,11 @@ app.get("/about", checkUser, (req, res) => {
   return res.render("about", { user });
 });
 
-
-
-
 app.get("/admin", checkUser, async (req, res) => {
   return res.render("admin", { user });
+});
+app.get("/add-product", checkUser, async (req, res) => {
+  return res.render("add-product", { user });
 });
 
 
