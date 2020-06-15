@@ -44,18 +44,18 @@ ProductRouter.route('/product')
 
 
 //Add products
-ProductRouter.route('/add-product')
+ProductRouter.route('/admin/add-product')
   .get((req, res) => {
     return res.render('add-product');
   })
   .post(upload.single('photo'), async (req, res) => {
-    const { name, category, description, price, size } = req.body;
-    const photo = 'http://localhost:5000/img/' + req.file.filename;
-    const newProduct = { name, category, description, price, size, photo };
+    const { name, category, description, price } = req.body;
+    const photo = 'https://beanie-beanie.herokuapp.com/img/' + req.file.filename;
+    const newProduct = { name, category, description, price, photo };
 
     const product = await ProductRepository.createProduct(newProduct);
-
-    return res.redirect('/product');
+    console.log(product);
+    return res.redirect('/admin');
   }
   );
 

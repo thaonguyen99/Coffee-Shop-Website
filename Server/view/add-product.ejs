@@ -1,61 +1,64 @@
-<%-include("partials/header")-%>
-
 <%# CONTENT GOES HERE %>
-<form class="" action="" method="post">
-  <div class="login-box">
-    <div class="login-container">
-      <form class="login-form" method="POST" action="">
-        <h1 style="font-family: 'Allura', cursive;">Add product</h1>
-        <div class="text-box one">
-          <div class="login-i">
-            <i class="fa fa-id-card"></i>
-          </div>
-          <div>
-            <h5>Name</h5>
-            <input class="input" type="text" name="name" />
-          </div>
-        </div>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+<div class="container text-center">
+  <form action="/admin/add-product" method="post" enctype="multipart/form-data">
+    <h1 style="font-family: 'Allura', cursive;">Add product</h1>
+    <div class="text-box one">
+      <div class="login-i">
+        <i class="fa fa-id-card"></i>
+      </div>
+      <div>
+        <h5>Name</h5>
+        <input class="input" type="text" name="name" />
+      </div>
+    </div>
 
-        <div class="text-box one">
-          <div class="login-i">
-            <i class="fa fa-user"></i>
-          </div>
-          <div>
-            <h5>Category</h5>
-            <input class="input" type="text" name="category" />
-          </div>
-        </div>
+    <div class="text-box one">
+      <div class="login-i">
+        <i class="fa fa-user"></i>
+      </div>
+      <div>
+        <h5>Category</h5>
+        <input type="radio" name="category" value="Coffee" />Coffee
+        <input type="radio" name="category" value="Tea" />Tea
+        <input type="radio" name="category" value="Pastry" />Pastry
 
-        <div class="text-box one">
-          <div class="login-i">
-            <i class="fa fa-home"></i>
-          </div>
-          <div>
-            <h5>Description</h5>
-            <input class="input" type="text" name="description" />
-          </div>
-        </div>
+      </div>
+    </div>
 
-        <div class="text-box one">
-          <div class="login-i">
-            <i class="fa fa-mobile"></i>
-          </div>
-          <div>
-            <h5>Price</h5>
-            <input class="input" type="text" name="price" />
-          </div>
-        </div>
+    <div class="text-box one">
+      <div class="login-i">
+        <i class="fa fa-home"></i>
+      </div>
+      <div>
+        <h5>Description</h5>
+        <input class="input" type="text" name="description" />
+      </div>
+    </div>
 
-        <div class="text-box one">
-          <div class="login-i">
-            <i class="fa fa-envelope"></i>
-          </div>
-          <div>
-            <h5>Photo</h5>
-            <input class="input" type="text" name="photo" />
-          </div>
-        </div>
+    <div class="text-box one">
+      <div class="login-i">
+        <i class="fa fa-mobile"></i>
+      </div>
+      <div>
+        <h5>Price</h5>
+        <input class="input" type="text" name="price" />
+      </div>
+    </div>
 
-      </form>
-
-      <%-include ("partials/footer")-%>
+    <div class="text-box one">
+      <div class="login-i">
+        <i class="fa fa-envelope"></i>
+      </div>
+      <div>
+        <h5>Photo</h5>
+        <input type="file" name="photo" />
+      </div>
+    </div>
+    <button class="button btn btn-lg btn-outline-dark checkout">Add</button>
+  </form>
+</div>
+<%-include ("partials/footer")-%>
